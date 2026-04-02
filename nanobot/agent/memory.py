@@ -89,15 +89,18 @@ class MemoryStore:
         return ""
 
     def write_long_term(self, content: str) -> None:
-        self.memory_file.write_text(content, encoding="utf-8")
+        # Why: 用户改用外部 MEMORY MCP，禁止内置写入 MEMORY.md，避免双写冲突。
+        # self.memory_file.write_text(content, encoding="utf-8")
+        _ = content
+        return
 
     def append_history(self, entry: str) -> None:
         with open(self.history_file, "a", encoding="utf-8") as f:
             f.write(entry.rstrip() + "\n\n")
 
-    def get_memory_context(self) -> str:
-        long_term = self.read_long_term()
-        return f"## Long-term Memory\n{long_term}" if long_term else ""
+    # def get_memory_context(self) -> str:
+    #     long_term = self.read_long_term()
+    #     return f"## Long-term Memory\n{long_term}" if long_term else ""
 
     @staticmethod
     def _format_messages(messages: list[dict]) -> str:
@@ -118,6 +121,10 @@ class MemoryStore:
         model: str,
     ) -> bool:
         """Consolidate the provided message chunk into MEMORY.md + HISTORY.md."""
+        # Why: 用户显式禁用内置记忆归档；直接返回，避免触发 save_memory 两段 prompt 与落盘写入。
+        _ = (messages, provider, model)
+        return True
+
         if not messages:
             return True
 

@@ -1,6 +1,6 @@
 <div align="center">
   <img src="nanobot_logo.png" alt="nanobot" width="500">
-  <h1>nanobot: Ultra-Lightweight Personal AI Assistant</h1>
+  <h1>nanobot：超轻量个人 AI 助手</h1>
   <p>
     <a href="https://pypi.org/project/nanobot-ai/"><img src="https://img.shields.io/pypi/v/nanobot-ai" alt="PyPI"></a>
     <a href="https://pepy.tech/project/nanobot-ai"><img src="https://static.pepy.tech/badge/nanobot-ai" alt="Downloads"></a>
@@ -12,117 +12,117 @@
   </p>
 </div>
 
-🐈 **nanobot** is an **ultra-lightweight** personal AI assistant inspired by [OpenClaw](https://github.com/openclaw/openclaw).
+🐈 **nanobot** 是一个受 [OpenClaw](https://github.com/openclaw/openclaw) 启发的**超轻量**个人 AI 助手。
 
-⚡️ Delivers core agent functionality with **99% fewer lines of code** than OpenClaw.
+⚡️ 以比 OpenClaw **少 99% 的代码行数**提供核心 Agent 能力。
 
-📏 Real-time line count: run `bash core_agent_lines.sh` to verify anytime.
+📏 实时代码行统计：随时运行 `bash core_agent_lines.sh` 验证。
 
-## 📢 News
+## 📢 新闻
 
 > [!IMPORTANT]
-> **Security note:** Due to `litellm` supply chain poisoning, **please check your Python environment ASAP** and refer to this [advisory](https://github.com/HKUDS/nanobot/discussions/2445) for details. We have fully removed the `litellm` dependency in [this commit](https://github.com/HKUDS/nanobot/commit/3dfdab7).
+> **安全说明：** 由于 `litellm` 供应链投毒事件，**请尽快检查你的 Python 环境**，并参考此[安全公告](https://github.com/HKUDS/nanobot/discussions/2445)。我们已在[此提交](https://github.com/HKUDS/nanobot/commit/3dfdab7)中完全移除 `litellm` 依赖。
 
-- **2026-03-21** 🔒 Replace `litellm` with native `openai` + `anthropic` SDKs. Please see [commit](https://github.com/HKUDS/nanobot/commit/3dfdab7).
-- **2026-03-20** 🧙 Interactive setup wizard — pick your provider, model autocomplete, and you're good to go.
-- **2026-03-19** 💬 Telegram gets more resilient under load; Feishu now renders code blocks properly.
-- **2026-03-18** 📷 Telegram can now send media via URL. Cron schedules show human-readable details.
-- **2026-03-17** ✨ Feishu formatting glow-up, Slack reacts when done, custom endpoints support extra headers, and image handling is more reliable.
-- **2026-03-16** 🚀 Released **v0.1.4.post5** — a refinement-focused release with stronger reliability and channel support, and a more dependable day-to-day experience. Please see [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post5) for details.
-- **2026-03-15** 🧩 DingTalk rich media, smarter built-in skills, and cleaner model compatibility.
-- **2026-03-14** 💬 Channel plugins, Feishu replies, and steadier MCP, QQ, and media handling.
-- **2026-03-13** 🌐 Multi-provider web search, LangSmith, and broader reliability improvements.
-- **2026-03-12** 🚀 VolcEngine support, Telegram reply context, `/restart`, and sturdier memory.
-- **2026-03-11** 🔌 WeCom, Ollama, cleaner discovery, and safer tool behavior.
-- **2026-03-10** 🧠 Token-based memory, shared retries, and cleaner gateway and Telegram behavior.
-- **2026-03-09** 💬 Slack thread polish and better Feishu audio compatibility.
-- **2026-03-08** 🚀 Released **v0.1.4.post4** — a reliability-packed release with safer defaults, better multi-instance support, sturdier MCP, and major channel and provider improvements. Please see [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post4) for details.
-- **2026-03-07** 🚀 Azure OpenAI provider, WhatsApp media, QQ group chats, and more Telegram/Feishu polish.
-- **2026-03-06** 🪄 Lighter providers, smarter media handling, and sturdier memory and CLI compatibility.
+- **2026-03-21** 🔒 用原生 `openai` + `anthropic` SDK 替换 `litellm`。见[提交](https://github.com/HKUDS/nanobot/commit/3dfdab7)。
+- **2026-03-20** 🧙 交互式初始化向导：可选择 provider、模型自动补全，快速可用。
+- **2026-03-19** 💬 Telegram 在高负载下更稳定；Feishu 代码块渲染更正确。
+- **2026-03-18** 📷 Telegram 现可通过 URL 发送媒体；Cron 计划展示更易读。
+- **2026-03-17** ✨ Feishu 格式化体验升级、Slack 完成后自动反应、自定义端点支持额外 headers、图片处理更可靠。
+- **2026-03-16** 🚀 发布 **v0.1.4.post5**：聚焦打磨与稳定性，增强各渠道支持与日常可用性。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post5)。
+- **2026-03-15** 🧩 钉钉富媒体、内置技能更智能、模型兼容性更干净。
+- **2026-03-14** 💬 渠道插件、Feishu 回复能力，以及 MCP/QQ/媒体处理稳定性提升。
+- **2026-03-13** 🌐 多 provider 网络搜索、LangSmith，以及更广泛稳定性改进。
+- **2026-03-12** 🚀 VolcEngine 支持、Telegram 回复上下文、`/restart` 与更稳健记忆。
+- **2026-03-11** 🔌 WeCom、Ollama、更清晰发现流程与更安全工具行为。
+- **2026-03-10** 🧠 基于 token 的记忆、统一重试机制、网关和 Telegram 行为更整洁。
+- **2026-03-09** 💬 Slack 线程优化与 Feishu 音频兼容性改进。
+- **2026-03-08** 🚀 发布 **v0.1.4.post4**：高可靠版本，含更安全默认值、更好的多实例支持、更稳健 MCP，以及重大渠道与 provider 改进。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post4)。
+- **2026-03-07** 🚀 Azure OpenAI provider、WhatsApp 媒体、QQ 群聊，以及更多 Telegram/Feishu 打磨。
+- **2026-03-06** 🪄 更轻量 providers、更智能媒体处理、更稳健记忆与 CLI 兼容性。
 
 <details>
-<summary>Earlier news</summary>
+<summary>更早新闻</summary>
 
-- **2026-03-05** ⚡️ Telegram draft streaming, MCP SSE support, and broader channel reliability fixes.
-- **2026-03-04** 🛠️ Dependency cleanup, safer file reads, and another round of test and Cron fixes.
-- **2026-03-03** 🧠 Cleaner user-message merging, safer multimodal saves, and stronger Cron guards.
-- **2026-03-02** 🛡️ Safer default access control, sturdier Cron reloads, and cleaner Matrix media handling.
-- **2026-03-01** 🌐 Web proxy support, smarter Cron reminders, and Feishu rich-text parsing improvements.
-- **2026-02-28** 🚀 Released **v0.1.4.post3** — cleaner context, hardened session history, and smarter agent. Please see [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post3) for details.
-- **2026-02-27** 🧠 Experimental thinking mode support, DingTalk media messages, Feishu and QQ channel fixes.
-- **2026-02-26** 🛡️ Session poisoning fix, WhatsApp dedup, Windows path guard, Mistral compatibility.
-- **2026-02-25** 🧹 New Matrix channel, cleaner session context, auto workspace template sync.
-- **2026-02-24** 🚀 Released **v0.1.4.post2** — a reliability-focused release with a redesigned heartbeat, prompt cache optimization, and hardened provider & channel stability. See [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post2) for details.
-- **2026-02-23** 🔧 Virtual tool-call heartbeat, prompt cache optimization, Slack mrkdwn fixes.
-- **2026-02-22** 🛡️ Slack thread isolation, Discord typing fix, agent reliability improvements.
-- **2026-02-21** 🎉 Released **v0.1.4.post1** — new providers, media support across channels, and major stability improvements. See [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post1) for details.
-- **2026-02-20** 🐦 Feishu now receives multimodal files from users. More reliable memory under the hood.
-- **2026-02-19** ✨ Slack now sends files, Discord splits long messages, and subagents work in CLI mode.
-- **2026-02-18** ⚡️ nanobot now supports VolcEngine, MCP custom auth headers, and Anthropic prompt caching.
-- **2026-02-17** 🎉 Released **v0.1.4** — MCP support, progress streaming, new providers, and multiple channel improvements. Please see [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4) for details.
-- **2026-02-16** 🦞 nanobot now integrates a [ClawHub](https://clawhub.ai) skill — search and install public agent skills.
-- **2026-02-15** 🔑 nanobot now supports OpenAI Codex provider with OAuth login support.
-- **2026-02-14** 🔌 nanobot now supports MCP! See [MCP section](#mcp-model-context-protocol) for details.
-- **2026-02-13** 🎉 Released **v0.1.3.post7** — includes security hardening and multiple improvements. **Please upgrade to the latest version to address security issues**. See [release notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post7) for more details.
-- **2026-02-12** 🧠 Redesigned memory system — Less code, more reliable. Join the [discussion](https://github.com/HKUDS/nanobot/discussions/566) about it!
-- **2026-02-11** ✨ Enhanced CLI experience and added MiniMax support!
-- **2026-02-10** 🎉 Released **v0.1.3.post6** with improvements! Check the updates [notes](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post6) and our [roadmap](https://github.com/HKUDS/nanobot/discussions/431).
-- **2026-02-09** 💬 Added Slack, Email, and QQ support — nanobot now supports multiple chat platforms!
-- **2026-02-08** 🔧 Refactored Providers—adding a new LLM provider now takes just 2 simple steps! Check [here](#providers).
-- **2026-02-07** 🚀 Released **v0.1.3.post5** with Qwen support & several key improvements! Check [here](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post5) for details.
-- **2026-02-06** ✨ Added Moonshot/Kimi provider, Discord integration, and enhanced security hardening!
-- **2026-02-05** ✨ Added Feishu channel, DeepSeek provider, and enhanced scheduled tasks support!
-- **2026-02-04** 🚀 Released **v0.1.3.post4** with multi-provider & Docker support! Check [here](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post4) for details.
-- **2026-02-03** ⚡ Integrated vLLM for local LLM support and improved natural language task scheduling!
-- **2026-02-02** 🎉 nanobot officially launched! Welcome to try 🐈 nanobot!
+- **2026-03-05** ⚡️ Telegram 草稿流式输出、MCP SSE 支持、更多渠道稳定性修复。
+- **2026-03-04** 🛠️ 依赖清理、更安全文件读取，以及新一轮测试与 Cron 修复。
+- **2026-03-03** 🧠 用户消息合并更干净、多模态保存更安全、Cron 保护更强。
+- **2026-03-02** 🛡️ 默认访问控制更安全、Cron 重载更稳、Matrix 媒体处理更清晰。
+- **2026-03-01** 🌐 Web 代理支持、Cron 提醒更智能、Feishu 富文本解析改进。
+- **2026-02-28** 🚀 发布 **v0.1.4.post3**：上下文更干净、会话历史更稳固、Agent 更智能。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post3)。
+- **2026-02-27** 🧠 实验性 thinking 模式支持、钉钉媒体消息、Feishu 与 QQ 渠道修复。
+- **2026-02-26** 🛡️ 会话投毒修复、WhatsApp 去重、Windows 路径保护、Mistral 兼容。
+- **2026-02-25** 🧹 新增 Matrix 渠道、会话上下文更整洁、workspace 模板自动同步。
+- **2026-02-24** 🚀 发布 **v0.1.4.post2**：可靠性导向版本，重构 heartbeat、优化 prompt cache，并强化 provider 与 channel 稳定性。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post2)。
+- **2026-02-23** 🔧 虚拟 tool-call heartbeat、prompt cache 优化、Slack mrkdwn 修复。
+- **2026-02-22** 🛡️ Slack 线程隔离、Discord 输入状态修复、Agent 可靠性提升。
+- **2026-02-21** 🎉 发布 **v0.1.4.post1**：新增 providers、跨渠道媒体支持、稳定性大幅提升。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post1)。
+- **2026-02-20** 🐦 Feishu 现可接收用户多模态文件；底层记忆机制更可靠。
+- **2026-02-19** ✨ Slack 可发送文件、Discord 自动拆分长消息、CLI 模式支持 subagents。
+- **2026-02-18** ⚡️ nanobot 新增 VolcEngine、MCP 自定义鉴权头、Anthropic prompt caching。
+- **2026-02-17** 🎉 发布 **v0.1.4**：支持 MCP、进度流式、更多 provider 与多项渠道改进。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4)。
+- **2026-02-16** 🦞 nanobot 集成 [ClawHub](https://clawhub.ai) 技能，可搜索并安装公开 Agent 技能。
+- **2026-02-15** 🔑 nanobot 支持 OpenAI Codex provider，并支持 OAuth 登录。
+- **2026-02-14** 🔌 nanobot 支持 MCP！详见 [MCP 章节](#mcp-model-context-protocol)。
+- **2026-02-13** 🎉 发布 **v0.1.3.post7**：包含安全加固与多项改进。**请升级到最新版本以修复安全问题**。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post7)。
+- **2026-02-12** 🧠 记忆系统重构：更少代码、更高可靠性。欢迎参与[讨论](https://github.com/HKUDS/nanobot/discussions/566)！
+- **2026-02-11** ✨ 强化 CLI 体验并新增 MiniMax 支持！
+- **2026-02-10** 🎉 发布 **v0.1.3.post6**。查看[更新说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post6)与[路线图](https://github.com/HKUDS/nanobot/discussions/431)。
+- **2026-02-09** 💬 新增 Slack、Email 与 QQ 支持，nanobot 进入多平台聊天时代。
+- **2026-02-08** 🔧 Provider 架构重构：新增 LLM provider 仅需两步！见[这里](#providers)。
+- **2026-02-07** 🚀 发布 **v0.1.3.post5**，支持 Qwen 并含多项关键改进！详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post5)。
+- **2026-02-06** ✨ 新增 Moonshot/Kimi provider、Discord 集成与安全加固。
+- **2026-02-05** ✨ 新增 Feishu 渠道、DeepSeek provider，并增强定时任务支持。
+- **2026-02-04** 🚀 发布 **v0.1.3.post4**，支持多 provider 与 Docker！详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post4)。
+- **2026-02-03** ⚡ 集成 vLLM 支持本地 LLM，并改进自然语言任务调度。
+- **2026-02-02** 🎉 nanobot 正式发布！欢迎体验 🐈 nanobot！
 
 </details>
 
-> 🐈 nanobot is for educational, research, and technical exchange purposes only. It is unrelated to crypto and does not involve any official token or coin.
+> 🐈 nanobot 仅用于教育、科研与技术交流。与加密货币无关，不涉及任何官方代币。
 
-## Key Features of nanobot:
+## nanobot 核心特性
 
-🪶 **Ultra-Lightweight**: A super lightweight implementation of OpenClaw — 99% smaller, significantly faster.
+🪶 **超轻量**：OpenClaw 的超轻实现，体积小 99%，速度显著提升。
 
-🔬 **Research-Ready**: Clean, readable code that's easy to understand, modify, and extend for research.
+🔬 **研究友好**：代码干净可读，易理解、易修改、易扩展。
 
-⚡️ **Lightning Fast**: Minimal footprint means faster startup, lower resource usage, and quicker iterations.
+⚡️ **极速**：更小体积意味着更快启动、更低资源占用、更快迭代。
 
-💎 **Easy-to-Use**: One-click to deploy and you're ready to go.
+💎 **易用**：一键部署即可开始使用。
 
-## 🏗️ Architecture
+## 🏗️ 架构
 
 <p align="center">
   <img src="nanobot_arch.png" alt="nanobot architecture" width="800">
 </p>
 
-## Table of Contents
+## 目录
 
-- [News](#-news)
-- [Key Features](#key-features-of-nanobot)
-- [Architecture](#️-architecture)
-- [Features](#-features)
-- [Install](#-install)
-- [Quick Start](#-quick-start)
-- [Chat Apps](#-chat-apps)
-- [Agent Social Network](#-agent-social-network)
-- [Configuration](#️-configuration)
-- [Multiple Instances](#-multiple-instances)
-- [CLI Reference](#-cli-reference)
+- [新闻](#-新闻)
+- [核心特性](#nanobot-核心特性)
+- [架构](#️-架构)
+- [功能](#-功能)
+- [安装](#-安装)
+- [快速开始](#-快速开始)
+- [聊天平台](#-聊天平台)
+- [Agent 社交网络](#-agent-社交网络)
+- [配置](#️-配置)
+- [多实例](#-多实例)
+- [CLI 参考](#-cli-参考)
 - [Docker](#-docker)
-- [Linux Service](#-linux-service)
-- [Project Structure](#-project-structure)
-- [Contribute & Roadmap](#-contribute--roadmap)
-- [Star History](#-star-history)
+- [Linux 服务](#-linux-服务)
+- [项目结构](#-项目结构)
+- [贡献与路线图](#-贡献与路线图)
+- [Star 历史](#-star-历史)
 
-## ✨ Features
+## ✨ 功能
 
 <table align="center">
   <tr align="center">
-    <th><p align="center">📈 24/7 Real-Time Market Analysis</p></th>
-    <th><p align="center">🚀 Full-Stack Software Engineer</p></th>
-    <th><p align="center">📅 Smart Daily Routine Manager</p></th>
-    <th><p align="center">📚 Personal Knowledge Assistant</p></th>
+    <th><p align="center">📈 7x24 实时市场分析</p></th>
+    <th><p align="center">🚀 全栈软件工程师</p></th>
+    <th><p align="center">📅 智能日常事务管理</p></th>
+    <th><p align="center">📚 个人知识助手</p></th>
   </tr>
   <tr>
     <td align="center"><p align="center"><img src="case/search.gif" width="180" height="400"></p></td>
@@ -131,16 +131,16 @@
     <td align="center"><p align="center"><img src="case/memory.gif" width="180" height="400"></p></td>
   </tr>
   <tr>
-    <td align="center">Discovery • Insights • Trends</td>
-    <td align="center">Develop • Deploy • Scale</td>
-    <td align="center">Schedule • Automate • Organize</td>
-    <td align="center">Learn • Memory • Reasoning</td>
+    <td align="center">发现 • 洞察 • 趋势</td>
+    <td align="center">开发 • 部署 • 扩展</td>
+    <td align="center">计划 • 自动化 • 组织</td>
+    <td align="center">学习 • 记忆 • 推理</td>
   </tr>
 </table>
 
-## 📦 Install
+## 📦 安装
 
-**Install from source** (latest features, recommended for development)
+**从源码安装**（最新功能，推荐开发者）
 
 ```bash
 git clone https://github.com/HKUDS/nanobot.git
@@ -148,19 +148,19 @@ cd nanobot
 pip install -e .
 ```
 
-**Install with [uv](https://github.com/astral-sh/uv)** (stable, fast)
+**使用 [uv](https://github.com/astral-sh/uv) 安装**（稳定、快速）
 
 ```bash
 uv tool install nanobot-ai
 ```
 
-**Install from PyPI** (stable)
+**从 PyPI 安装**（稳定）
 
 ```bash
 pip install nanobot-ai
 ```
 
-### Update to latest version
+### 升级到最新版本
 
 **PyPI / pip**
 
@@ -176,36 +176,36 @@ uv tool upgrade nanobot-ai
 nanobot --version
 ```
 
-**Using WhatsApp?** Rebuild the local bridge after upgrading:
+**使用 WhatsApp？** 升级后请重建本地 bridge：
 
 ```bash
 rm -rf ~/.nanobot/bridge
 nanobot channels login whatsapp
 ```
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
 > [!TIP]
-> Set your API key in `~/.nanobot/config.json`.
-> Get API keys: [OpenRouter](https://openrouter.ai/keys) (Global)
+> 在 `~/.nanobot/config.json` 中设置 API Key。
+> 获取 API Key：[OpenRouter](https://openrouter.ai/keys)（全球可用）
 >
-> For other LLM providers, please see the [Providers](#providers) section.
+> 其他 LLM provider 请见 [Providers](#providers) 章节。
 >
-> For web search capability setup, please see [Web Search](#web-search).
+> Web 搜索能力配置请见 [Web Search](#web-search)。
 
-**1. Initialize**
+**1. 初始化**
 
 ```bash
 nanobot onboard
 ```
 
-Use `nanobot onboard --wizard` if you want the interactive setup wizard.
+如果你想用交互式向导：`nanobot onboard --wizard`。
 
-**2. Configure** (`~/.nanobot/config.json`)
+**2. 配置**（`~/.nanobot/config.json`）
 
-Configure these **two parts** in your config (other options have defaults).
+在配置里只需先设置**两个部分**（其他都有默认值）。
 
-*Set your API key* (e.g. OpenRouter, recommended for global users):
+*设置 API Key*（例如 OpenRouter，推荐全球用户）：
 ```json
 {
   "providers": {
@@ -216,7 +216,7 @@ Configure these **two parts** in your config (other options have defaults).
 }
 ```
 
-*Set your model* (optionally pin a provider — defaults to auto-detection):
+*设置模型*（可选指定 provider，默认自动检测）：
 ```json
 {
   "agents": {
@@ -228,42 +228,42 @@ Configure these **two parts** in your config (other options have defaults).
 }
 ```
 
-**3. Chat**
+**3. 开聊**
 
 ```bash
 nanobot agent
 ```
 
-That's it! You have a working AI assistant in 2 minutes.
+就这样！2 分钟内就能得到一个可用的 AI 助手。
 
-## 💬 Chat Apps
+## 💬 聊天平台
 
-Connect nanobot to your favorite chat platform. Want to build your own? See the [Channel Plugin Guide](./docs/CHANNEL_PLUGIN_GUIDE.md).
+把 nanobot 接入你常用的聊天平台。想自建渠道？见 [Channel Plugin Guide](./docs/CHANNEL_PLUGIN_GUIDE.md)。
 
-| Channel | What you need |
+| 渠道 | 你需要准备的内容 |
 |---------|---------------|
-| **Telegram** | Bot token from @BotFather |
-| **Discord** | Bot token + Message Content intent |
-| **WhatsApp** | QR code scan (`nanobot channels login whatsapp`) |
-| **WeChat (Weixin)** | QR code scan (`nanobot channels login weixin`) |
+| **Telegram** | 从 @BotFather 获取 Bot Token |
+| **Discord** | Bot Token + Message Content intent |
+| **WhatsApp** | 扫码登录（`nanobot channels login whatsapp`） |
+| **WeChat (Weixin)** | 扫码登录（`nanobot channels login weixin`） |
 | **Feishu** | App ID + App Secret |
 | **DingTalk** | App Key + App Secret |
-| **Slack** | Bot token + App-Level token |
-| **Matrix** | Homeserver URL + Access token |
-| **Email** | IMAP/SMTP credentials |
+| **Slack** | Bot Token + App-Level Token |
+| **Matrix** | Homeserver URL + Access Token |
+| **Email** | IMAP/SMTP 凭据 |
 | **QQ** | App ID + App Secret |
 | **Wecom** | Bot ID + Bot Secret |
-| **Mochat** | Claw token (auto-setup available) |
+| **Mochat** | Claw Token（支持自动配置） |
 
 <details>
-<summary><b>Telegram</b> (Recommended)</summary>
+<summary><b>Telegram</b>（推荐）</summary>
 
-**1. Create a bot**
-- Open Telegram, search `@BotFather`
-- Send `/newbot`, follow prompts
-- Copy the token
+**1. 创建机器人**
+- 打开 Telegram，搜索 `@BotFather`
+- 发送 `/newbot`，按提示完成
+- 复制 token
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -277,11 +277,11 @@ Connect nanobot to your favorite chat platform. Want to build your own? See the 
 }
 ```
 
-> You can find your **User ID** in Telegram settings. It is shown as `@yourUserId`.
-> Copy this value **without the `@` symbol** and paste it into the config file.
+> 你可以在 Telegram 设置中找到 **User ID**，显示形式为 `@yourUserId`。
+> 复制该值并**去掉 `@` 前缀**后填入配置文件。
 
 
-**3. Run**
+**3. 运行**
 
 ```bash
 nanobot gateway
@@ -292,34 +292,34 @@ nanobot gateway
 <details>
 <summary><b>Mochat (Claw IM)</b></summary>
 
-Uses **Socket.IO WebSocket** by default, with HTTP polling fallback.
+默认使用 **Socket.IO WebSocket**，并带有 HTTP polling 回退。
 
-**1. Ask nanobot to set up Mochat for you**
+**1. 让 nanobot 自动帮你配置 Mochat**
 
-Simply send this message to nanobot (replace `xxx@xxx` with your real email):
+直接给 nanobot 发送这条消息（把 `xxx@xxx` 改成你的真实邮箱）：
 
 ```
 Read https://raw.githubusercontent.com/HKUDS/MoChat/refs/heads/main/skills/nanobot/skill.md and register on MoChat. My Email account is xxx@xxx Bind me as your owner and DM me on MoChat.
 ```
 
-nanobot will automatically register, configure `~/.nanobot/config.json`, and connect to Mochat.
+nanobot 会自动完成注册、写入 `~/.nanobot/config.json`，并连接 Mochat。
 
-**2. Restart gateway**
+**2. 重启网关**
 
 ```bash
 nanobot gateway
 ```
 
-That's it — nanobot handles the rest!
+就这样，剩下的 nanobot 会自动处理！
 
 <br>
 
 <details>
-<summary>Manual configuration (advanced)</summary>
+<summary>手动配置（高级）</summary>
 
-If you prefer to configure manually, add the following to `~/.nanobot/config.json`:
+如果你更偏好手动配置，请在 `~/.nanobot/config.json` 中添加：
 
-> Keep `claw_token` private. It should only be sent in `X-Claw-Token` header to your Mochat API endpoint.
+> 请妥善保管 `claw_token`。它只应通过 `X-Claw-Token` 请求头发送到你的 Mochat API 端点。
 
 ```json
 {
@@ -349,20 +349,20 @@ If you prefer to configure manually, add the following to `~/.nanobot/config.jso
 <details>
 <summary><b>Discord</b></summary>
 
-**1. Create a bot**
-- Go to https://discord.com/developers/applications
-- Create an application → Bot → Add Bot
-- Copy the bot token
+**1. 创建机器人**
+- 打开 https://discord.com/developers/applications
+- 创建应用 → Bot → Add Bot
+- 复制 Bot Token
 
-**2. Enable intents**
-- In the Bot settings, enable **MESSAGE CONTENT INTENT**
-- (Optional) Enable **SERVER MEMBERS INTENT** if you plan to use allow lists based on member data
+**2. 开启 intents**
+- 在 Bot 设置中开启 **MESSAGE CONTENT INTENT**
+- （可选）若你计划基于成员信息做 allow 列表，再开启 **SERVER MEMBERS INTENT**
 
-**3. Get your User ID**
-- Discord Settings → Advanced → enable **Developer Mode**
-- Right-click your avatar → **Copy User ID**
+**3. 获取你的 User ID**
+- Discord 设置 → Advanced → 开启 **Developer Mode**
+- 右键你的头像 → **Copy User ID**
 
-**4. Configure**
+**4. 配置**
 
 ```json
 {
@@ -377,19 +377,19 @@ If you prefer to configure manually, add the following to `~/.nanobot/config.jso
 }
 ```
 
-> `groupPolicy` controls how the bot responds in group channels:
-> - `"mention"` (default) — Only respond when @mentioned
-> - `"open"` — Respond to all messages
-> DMs always respond when the sender is in `allowFrom`.
-> - If you set group policy to open create new threads as private threads and then @ the bot into it. Otherwise the thread itself and the channel in which you spawned it will spawn a bot session.
+> `groupPolicy` 控制机器人在群组频道中的响应方式：
+> - `"mention"`（默认）— 仅在被 @ 时回复
+> - `"open"` — 回复所有消息
+> 私聊会在发送者位于 `allowFrom` 时始终回复。
+> - 如果你把 group policy 设为 open，请将新线程建为 private thread，然后在其中 @ 机器人；否则线程本身及其所在频道都会生成 bot 会话。
 
-**5. Invite the bot**
+**5. 邀请机器人**
 - OAuth2 → URL Generator
-- Scopes: `bot`
-- Bot Permissions: `Send Messages`, `Read Message History`
-- Open the generated invite URL and add the bot to your server
+- Scopes：`bot`
+- Bot Permissions：`Send Messages`、`Read Message History`
+- 打开生成的邀请链接，把机器人添加到你的服务器
 
-**6. Run**
+**6. 运行**
 
 ```bash
 nanobot gateway
@@ -400,26 +400,26 @@ nanobot gateway
 <details>
 <summary><b>Matrix (Element)</b></summary>
 
-Install Matrix dependencies first:
+先安装 Matrix 依赖：
 
 ```bash
 pip install nanobot-ai[matrix]
 ```
 
-**1. Create/choose a Matrix account**
+**1. 创建/选择 Matrix 账号**
 
-- Create or reuse a Matrix account on your homeserver (for example `matrix.org`).
-- Confirm you can log in with Element.
+- 在你的 homeserver（例如 `matrix.org`）上创建或复用一个 Matrix 账号。
+- 确认可用 Element 正常登录。
 
-**2. Get credentials**
+**2. 获取凭据**
 
-- You need:
-  - `userId` (example: `@nanobot:matrix.org`)
+- 你需要：
+  - `userId`（示例：`@nanobot:matrix.org`）
   - `accessToken`
-  - `deviceId` (recommended so sync tokens can be restored across restarts)
-- You can obtain these from your homeserver login API (`/_matrix/client/v3/login`) or from your client's advanced session settings.
+  - `deviceId`（推荐；可让重启后恢复 sync token）
+- 这些可从 homeserver 登录 API（`/_matrix/client/v3/login`）或客户端高级会话设置中获取。
 
-**3. Configure**
+**3. 配置**
 
 ```json
 {
@@ -441,21 +441,21 @@ pip install nanobot-ai[matrix]
 }
 ```
 
-> Keep a persistent `matrix-store` and stable `deviceId` — encrypted session state is lost if these change across restarts.
+> 请保持持久化 `matrix-store` 和稳定 `deviceId`。若重启后这些发生变化，加密会话状态会丢失。
 
-| Option | Description |
+| 选项 | 说明 |
 |--------|-------------|
-| `allowFrom` | User IDs allowed to interact. Empty denies all; use `["*"]` to allow everyone. |
-| `groupPolicy` | `open` (default), `mention`, or `allowlist`. |
-| `groupAllowFrom` | Room allowlist (used when policy is `allowlist`). |
-| `allowRoomMentions` | Accept `@room` mentions in mention mode. |
-| `e2eeEnabled` | E2EE support (default `true`). Set `false` for plaintext-only. |
-| `maxMediaBytes` | Max attachment size (default `20MB`). Set `0` to block all media. |
+| `allowFrom` | 允许交互的用户 ID。空数组表示拒绝所有；`["*"]` 表示允许所有。 |
+| `groupPolicy` | `open`（默认）、`mention` 或 `allowlist`。 |
+| `groupAllowFrom` | 房间白名单（当策略为 `allowlist` 时生效）。 |
+| `allowRoomMentions` | mention 模式下是否接受 `@room`。 |
+| `e2eeEnabled` | 是否启用 E2EE（默认 `true`）。设为 `false` 表示仅明文。 |
+| `maxMediaBytes` | 附件大小上限（默认 `20MB`）。设为 `0` 可禁用全部媒体。 |
 
 
 
 
-**4. Run**
+**4. 运行**
 
 ```bash
 nanobot gateway
@@ -466,16 +466,16 @@ nanobot gateway
 <details>
 <summary><b>WhatsApp</b></summary>
 
-Requires **Node.js ≥18**.
+需要 **Node.js ≥18**。
 
-**1. Link device**
+**1. 绑定设备**
 
 ```bash
 nanobot channels login whatsapp
-# Scan QR with WhatsApp → Settings → Linked Devices
+# 用 WhatsApp 扫码：Settings → Linked Devices
 ```
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -488,18 +488,18 @@ nanobot channels login whatsapp
 }
 ```
 
-**3. Run** (two terminals)
+**3. 运行**（两个终端）
 
 ```bash
-# Terminal 1
+# 终端 1
 nanobot channels login whatsapp
 
-# Terminal 2
+# 终端 2
 nanobot gateway
 ```
 
-> WhatsApp bridge updates are not applied automatically for existing installations.
-> After upgrading nanobot, rebuild the local bridge with:
+> 已有安装不会自动应用 WhatsApp bridge 更新。
+> 升级 nanobot 后，请执行：
 > `rm -rf ~/.nanobot/bridge && nanobot channels login whatsapp`
 
 </details>
@@ -507,21 +507,21 @@ nanobot gateway
 <details>
 <summary><b>Feishu</b></summary>
 
-Uses **WebSocket** long connection — no public IP required.
+使用 **WebSocket** 长连接，无需公网 IP。
 
-**1. Create a Feishu bot**
-- Visit [Feishu Open Platform](https://open.feishu.cn/app)
-- Create a new app → Enable **Bot** capability
-- **Permissions**:
-  - `im:message` (send messages) and `im:message.p2p_msg:readonly` (receive messages)
-  - **Streaming replies** (default in nanobot): add **`cardkit:card:write`** (often labeled **Create and update cards** in the Feishu developer console). Required for CardKit entities and streamed assistant text. Older apps may not have it yet — open **Permission management**, enable the scope, then **publish** a new app version if the console requires it.
-  - If you **cannot** add `cardkit:card:write`, set `"streaming": false` under `channels.feishu` (see below). The bot still works; replies use normal interactive cards without token-by-token streaming.
-- **Events**: Add `im.message.receive_v1` (receive messages)
-  - Select **Long Connection** mode (requires running nanobot first to establish connection)
-- Get **App ID** and **App Secret** from "Credentials & Basic Info"
-- Publish the app
+**1. 创建 Feishu 机器人**
+- 访问 [Feishu Open Platform](https://open.feishu.cn/app)
+- 新建应用 → 启用 **Bot** 能力
+- **权限**：
+  - `im:message`（发消息）和 `im:message.p2p_msg:readonly`（收消息）
+  - **流式回复**（nanobot 默认）：添加 **`cardkit:card:write`**（在飞书控制台常显示为 **创建和更新卡片**）。这对 CardKit 实体和流式文本是必需的。老应用可能暂时没有该项，请在**权限管理**中勾选并按控制台要求**发布**新版本。
+  - 若你**无法**添加 `cardkit:card:write`，请把 `channels.feishu` 下的 `"streaming"` 设为 `false`（见下文）。机器人仍可用，只是回复改为普通交互卡片，不做逐 token 流式输出。
+- **事件**：添加 `im.message.receive_v1`（接收消息）
+  - 选择 **Long Connection** 模式（需先运行 nanobot 建立连接）
+- 在“凭证与基础信息”中获取 **App ID** 与 **App Secret**
+- 发布应用
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -540,42 +540,42 @@ Uses **WebSocket** long connection — no public IP required.
 }
 ```
 
-> `streaming` defaults to `true`. Use `false` if your app does not have **`cardkit:card:write`** (see permissions above).
-> `encryptKey` and `verificationToken` are optional for Long Connection mode.
-> `allowFrom`: Add your open_id (find it in nanobot logs when you message the bot). Use `["*"]` to allow all users.
-> `groupPolicy`: `"mention"` (default — respond only when @mentioned), `"open"` (respond to all group messages). Private chats always respond.
+> `streaming` 默认是 `true`。如果你的应用没有 **`cardkit:card:write`** 权限，请改为 `false`。
+> `encryptKey` 与 `verificationToken` 在 Long Connection 模式下是可选项。
+> `allowFrom`：填你的 open_id（给机器人发消息后可在 nanobot 日志中看到）。使用 `["*"]` 可允许所有用户。
+> `groupPolicy`：`"mention"`（默认，仅被 @ 时回复）或 `"open"`（回复群内所有消息）。私聊始终回复。
 
-**3. Run**
+**3. 运行**
 
 ```bash
 nanobot gateway
 ```
 
 > [!TIP]
-> Feishu uses WebSocket to receive messages — no webhook or public IP needed!
+> Feishu 通过 WebSocket 收消息，不需要 webhook 或公网 IP！
 
 </details>
 
 <details>
 <summary><b>QQ (QQ单聊)</b></summary>
 
-Uses **botpy SDK** with WebSocket — no public IP required. Currently supports **private messages only**.
+使用 **botpy SDK** + WebSocket，无需公网 IP。目前仅支持**私聊消息**。
 
-**1. Register & create bot**
-- Visit [QQ Open Platform](https://q.qq.com) → Register as a developer (personal or enterprise)
-- Create a new bot application
-- Go to **开发设置 (Developer Settings)** → copy **AppID** and **AppSecret**
+**1. 注册并创建机器人**
+- 打开 [QQ Open Platform](https://q.qq.com) → 注册开发者（个人或企业）
+- 创建新的机器人应用
+- 进入 **开发设置 (Developer Settings)** → 复制 **AppID** 与 **AppSecret**
 
-**2. Set up sandbox for testing**
-- In the bot management console, find **沙箱配置 (Sandbox Config)**
-- Under **在消息列表配置**, click **添加成员** and add your own QQ number
-- Once added, scan the bot's QR code with mobile QQ → open the bot profile → tap "发消息" to start chatting
+**2. 配置测试沙箱**
+- 在机器人管理后台找到 **沙箱配置 (Sandbox Config)**
+- 在 **在消息列表配置** 下点击 **添加成员**，添加你的 QQ 号
+- 添加后，用手机 QQ 扫机器人二维码 → 打开机器人资料页 → 点击“发消息”开始测试
 
-**3. Configure**
+**3. 配置**
 
-> - `allowFrom`: Add your openid (find it in nanobot logs when you message the bot). Use `["*"]` for public access.
-> - `msgFormat`: Optional. Use `"plain"` (default) for maximum compatibility with legacy QQ clients, or `"markdown"` for richer formatting on newer clients.
-> - For production: submit a review in the bot console and publish. See [QQ Bot Docs](https://bot.q.qq.com/wiki/) for the full publishing flow.
+> - `allowFrom`：填你的 openid（给机器人发消息后在 nanobot 日志可见）。`["*"]` 表示公开访问。
+> - `msgFormat`：可选。`"plain"`（默认）兼容旧版 QQ 客户端；`"markdown"` 在新客户端有更丰富格式。
+> - 生产环境：请在机器人控制台提交审核并发布。完整流程见 [QQ Bot Docs](https://bot.q.qq.com/wiki/)。
 
 ```json
 {
@@ -591,31 +591,31 @@ Uses **botpy SDK** with WebSocket — no public IP required. Currently supports 
 }
 ```
 
-**4. Run**
+**4. 运行**
 
 ```bash
 nanobot gateway
 ```
 
-Now send a message to the bot from QQ — it should respond!
+现在从 QQ 给机器人发消息，它应该会回复。
 
 </details>
 
 <details>
 <summary><b>DingTalk (钉钉)</b></summary>
 
-Uses **Stream Mode** — no public IP required.
+使用 **Stream Mode**，无需公网 IP。
 
-**1. Create a DingTalk bot**
-- Visit [DingTalk Open Platform](https://open-dev.dingtalk.com/)
-- Create a new app -> Add **Robot** capability
-- **Configuration**:
-  - Toggle **Stream Mode** ON
-- **Permissions**: Add necessary permissions for sending messages
-- Get **AppKey** (Client ID) and **AppSecret** (Client Secret) from "Credentials"
-- Publish the app
+**1. 创建钉钉机器人**
+- 打开 [DingTalk Open Platform](https://open-dev.dingtalk.com/)
+- 创建新应用 → 添加 **Robot** 能力
+- **配置**：
+  - 打开 **Stream Mode**
+- **权限**：添加发送消息所需权限
+- 在“凭证”中获取 **AppKey**（Client ID）和 **AppSecret**（Client Secret）
+- 发布应用
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -630,9 +630,9 @@ Uses **Stream Mode** — no public IP required.
 }
 ```
 
-> `allowFrom`: Add your staff ID. Use `["*"]` to allow all users.
+> `allowFrom`：填写你的 staff ID。`["*"]` 表示允许所有用户。
 
-**3. Run**
+**3. 运行**
 
 ```bash
 nanobot gateway
@@ -643,20 +643,20 @@ nanobot gateway
 <details>
 <summary><b>Slack</b></summary>
 
-Uses **Socket Mode** — no public URL required.
+使用 **Socket Mode**，无需公网 URL。
 
-**1. Create a Slack app**
-- Go to [Slack API](https://api.slack.com/apps) → **Create New App** → "From scratch"
-- Pick a name and select your workspace
+**1. 创建 Slack 应用**
+- 打开 [Slack API](https://api.slack.com/apps) → **Create New App** → "From scratch"
+- 选择名称并绑定 workspace
 
-**2. Configure the app**
-- **Socket Mode**: Toggle ON → Generate an **App-Level Token** with `connections:write` scope → copy it (`xapp-...`)
-- **OAuth & Permissions**: Add bot scopes: `chat:write`, `reactions:write`, `app_mentions:read`
-- **Event Subscriptions**: Toggle ON → Subscribe to bot events: `message.im`, `message.channels`, `app_mention` → Save Changes
-- **App Home**: Scroll to **Show Tabs** → Enable **Messages Tab** → Check **"Allow users to send Slash commands and messages from the messages tab"**
-- **Install App**: Click **Install to Workspace** → Authorize → copy the **Bot Token** (`xoxb-...`)
+**2. 配置应用**
+- **Socket Mode**：开启 → 生成带 `connections:write` scope 的 **App-Level Token** → 复制（`xapp-...`）
+- **OAuth & Permissions**：添加 bot scopes：`chat:write`、`reactions:write`、`app_mentions:read`
+- **Event Subscriptions**：开启 → 订阅 bot events：`message.im`、`message.channels`、`app_mention` → Save Changes
+- **App Home**：下拉到 **Show Tabs** → 开启 **Messages Tab** → 勾选 **Allow users to send Slash commands and messages from the messages tab**
+- **Install App**：点击 **Install to Workspace** → 授权 → 复制 **Bot Token**（`xoxb-...`）
 
-**3. Configure nanobot**
+**3. 配置 nanobot**
 
 ```json
 {
@@ -672,36 +672,36 @@ Uses **Socket Mode** — no public URL required.
 }
 ```
 
-**4. Run**
+**4. 运行**
 
 ```bash
 nanobot gateway
 ```
 
-DM the bot directly or @mention it in a channel — it should respond!
+直接私聊机器人，或在频道中 @ 它，它就会回复。
 
 > [!TIP]
-> - `groupPolicy`: `"mention"` (default — respond only when @mentioned), `"open"` (respond to all channel messages), or `"allowlist"` (restrict to specific channels).
-> - DM policy defaults to open. Set `"dm": {"enabled": false}` to disable DMs.
+> - `groupPolicy`：`"mention"`（默认，仅被 @ 时回复）、`"open"`（回复所有频道消息）或 `"allowlist"`（仅指定频道）。
+> - 私聊策略默认开放。设置 `"dm": {"enabled": false}` 可禁用私聊。
 
 </details>
 
 <details>
 <summary><b>Email</b></summary>
 
-Give nanobot its own email account. It polls **IMAP** for incoming mail and replies via **SMTP** — like a personal email assistant.
+给 nanobot 一个独立邮箱账号。它会轮询 **IMAP** 收信，并通过 **SMTP** 回信，像一个邮件助理。
 
-**1. Get credentials (Gmail example)**
-- Create a dedicated Gmail account for your bot (e.g. `my-nanobot@gmail.com`)
-- Enable 2-Step Verification → Create an [App Password](https://myaccount.google.com/apppasswords)
-- Use this app password for both IMAP and SMTP
+**1. 获取凭据（以 Gmail 为例）**
+- 为机器人创建独立 Gmail（例如 `my-nanobot@gmail.com`）
+- 开启 2-Step Verification → 创建 [App Password](https://myaccount.google.com/apppasswords)
+- 该 app password 同时用于 IMAP 与 SMTP
 
-**2. Configure**
+**2. 配置**
 
-> - `consentGranted` must be `true` to allow mailbox access. This is a safety gate — set `false` to fully disable.
-> - `allowFrom`: Add your email address. Use `["*"]` to accept emails from anyone.
-> - `smtpUseTls` and `smtpUseSsl` default to `true` / `false` respectively, which is correct for Gmail (port 587 + STARTTLS). No need to set them explicitly.
-> - Set `"autoReplyEnabled": false` if you only want to read/analyze emails without sending automatic replies.
+> - `consentGranted` 必须为 `true` 才允许访问邮箱。这是安全闸门；设为 `false` 可完全禁用。
+> - `allowFrom`：填写允许发件人的邮箱地址。`["*"]` 表示接受任何人来信。
+> - `smtpUseTls` 与 `smtpUseSsl` 默认分别为 `true` / `false`，适配 Gmail（587 + STARTTLS），通常不必显式设置。
+> - 若你只想读/分析邮件，不自动回复，请设 `"autoReplyEnabled": false`。
 
 ```json
 {
@@ -725,7 +725,7 @@ Give nanobot its own email account. It polls **IMAP** for incoming mail and repl
 ```
 
 
-**3. Run**
+**3. 运行**
 
 ```bash
 nanobot gateway
@@ -736,11 +736,11 @@ nanobot gateway
 <details>
 <summary><b>WeChat (微信 / Weixin)</b></summary>
 
-Uses **HTTP long-poll** with QR-code login via the ilinkai personal WeChat API. No local WeChat desktop client is required.
+通过 ilinkai 个人微信 API 进行 **HTTP long-poll** + 扫码登录，不需要本地微信桌面端。
 
-> Weixin support is available from source checkout, but is not included in the current PyPI release yet.
+> Weixin 在源码安装中可用，但当前 PyPI 版本尚未包含该功能。
 
-**1. Install from source**
+**1. 从源码安装**
 
 ```bash
 git clone https://github.com/HKUDS/nanobot.git
@@ -748,7 +748,7 @@ cd nanobot
 pip install -e ".[weixin]"
 ```
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -761,25 +761,25 @@ pip install -e ".[weixin]"
 }
 ```
 
-> - `allowFrom`: Add the sender ID you see in nanobot logs for your WeChat account. Use `["*"]` to allow all users.
-> - `token`: Optional. If omitted, log in interactively and nanobot will save the token for you.
-> - `routeTag`: Optional. When your upstream Weixin deployment requires request routing, nanobot will send it as the `SKRouteTag` header.
-> - `stateDir`: Optional. Defaults to nanobot's runtime directory for Weixin state.
-> - `pollTimeout`: Optional long-poll timeout in seconds.
+> - `allowFrom`：填写你在 nanobot 日志里看到的微信发送者 ID。`["*"]` 可允许所有用户。
+> - `token`：可选。若不填，可走交互式登录，nanobot 会自动保存 token。
+> - `routeTag`：可选。当上游 Weixin 部署要求路由时，nanobot 会作为 `SKRouteTag` 请求头发送。
+> - `stateDir`：可选。默认使用 nanobot 的 Weixin 运行时目录。
+> - `pollTimeout`：可选，长轮询超时时间（秒）。
 
-**3. Login**
+**3. 登录**
 
 ```bash
 nanobot channels login weixin
 ```
 
-Use `--force` to re-authenticate and ignore any saved token:
+用 `--force` 可强制重新认证，忽略已保存 token：
 
 ```bash
 nanobot channels login weixin --force
 ```
 
-**4. Run**
+**4. 运行**
 
 ```bash
 nanobot gateway
@@ -790,21 +790,21 @@ nanobot gateway
 <details>
 <summary><b>Wecom (企业微信)</b></summary>
 
-> Here we use [wecom-aibot-sdk-python](https://github.com/chengyongru/wecom_aibot_sdk) (community Python version of the official [@wecom/aibot-node-sdk](https://www.npmjs.com/package/@wecom/aibot-node-sdk)).
+> 这里使用 [wecom-aibot-sdk-python](https://github.com/chengyongru/wecom_aibot_sdk)（官方 [@wecom/aibot-node-sdk](https://www.npmjs.com/package/@wecom/aibot-node-sdk) 的社区 Python 版本）。
 >
-> Uses **WebSocket** long connection — no public IP required.
+> 使用 **WebSocket** 长连接，无需公网 IP。
 
-**1. Install the optional dependency**
+**1. 安装可选依赖**
 
 ```bash
 pip install nanobot-ai[wecom]
 ```
 
-**2. Create a WeCom AI Bot**
+**2. 创建企业微信 AI Bot**
 
-Go to the WeCom admin console → Intelligent Robot → Create Robot → select **API mode** with **long connection**. Copy the Bot ID and Secret.
+进入企业微信管理后台 → 智能机器人 → 创建机器人 → 选择 **API 模式** + **长连接**。复制 Bot ID 和 Secret。
 
-**3. Configure**
+**3. 配置**
 
 ```json
 {
@@ -819,7 +819,7 @@ Go to the WeCom admin console → Intelligent Robot → Create Robot → select 
 }
 ```
 
-**4. Run**
+**4. 运行**
 
 ```bash
 nanobot gateway
@@ -827,71 +827,71 @@ nanobot gateway
 
 </details>
 
-## 🌐 Agent Social Network
+## 🌐 Agent 社交网络
 
-🐈 nanobot is capable of linking to the agent social network (agent community). **Just send one message and your nanobot joins automatically!**
+🐈 nanobot 可以连接 Agent 社交网络（Agent 社区）。**只要发一条消息，你的 nanobot 就会自动加入！**
 
-| Platform | How to Join (send this message to your bot) |
+| 平台 | 如何加入（把这条消息发给你的机器人） |
 |----------|-------------|
 | [**Moltbook**](https://www.moltbook.com/) | `Read https://moltbook.com/skill.md and follow the instructions to join Moltbook` |
 | [**ClawdChat**](https://clawdchat.ai/) | `Read https://clawdchat.ai/skill.md and follow the instructions to join ClawdChat` |
 
-Simply send the command above to your nanobot (via CLI or any chat channel), and it will handle the rest.
+把上面的命令发给 nanobot（通过 CLI 或任意聊天渠道），它会自动处理后续。
 
-## ⚙️ Configuration
+## ⚙️ 配置
 
-Config file: `~/.nanobot/config.json`
+配置文件：`~/.nanobot/config.json`
 
-### Providers
+### 模型提供商（Providers）
 
 > [!TIP]
-> - **Groq** provides free voice transcription via Whisper. If configured, Telegram voice messages will be automatically transcribed.
-> - **MiniMax Coding Plan**: Exclusive discount links for the nanobot community: [Overseas](https://platform.minimax.io/subscribe/coding-plan?code=9txpdXw04g&source=link) · [Mainland China](https://platform.minimaxi.com/subscribe/token-plan?code=GILTJpMTqZ&source=link)
-> - **MiniMax (Mainland China)**: If your API key is from MiniMax's mainland China platform (minimaxi.com), set `"apiBase": "https://api.minimaxi.com/v1"` in your minimax provider config.
-> - **VolcEngine / BytePlus Coding Plan**: Use dedicated providers `volcengineCodingPlan` or `byteplusCodingPlan` instead of the pay-per-use `volcengine` / `byteplus` providers.
-> - **Zhipu Coding Plan**: If you're on Zhipu's coding plan, set `"apiBase": "https://open.bigmodel.cn/api/coding/paas/v4"` in your zhipu provider config.
-> - **Alibaba Cloud BaiLian**: If you're using Alibaba Cloud BaiLian's OpenAI-compatible endpoint, set `"apiBase": "https://dashscope.aliyuncs.com/compatible-mode/v1"` in your dashscope provider config.
-> - **Step Fun (Mainland China)**: If your API key is from Step Fun's mainland China platform (stepfun.com), set `"apiBase": "https://api.stepfun.com/v1"` in your stepfun provider config.
-> - **Step Fun Step Plan**: Exclusive discount links for the nanobot community: [Overseas](https://platform.stepfun.ai/step-plan) · [Mainland China](https://platform.stepfun.com/step-plan)
+> - **Groq** 提供免费的 Whisper 语音转写。配置后，Telegram 语音消息会自动转写。
+> - **MiniMax Coding Plan**：nanobot 社区专属优惠链接：[海外](https://platform.minimax.io/subscribe/coding-plan?code=9txpdXw04g&source=link) · [中国大陆](https://platform.minimaxi.com/subscribe/token-plan?code=GILTJpMTqZ&source=link)
+> - **MiniMax（中国大陆）**：如果 API Key 来自 minimaxi.com，请在 minimax provider 中设置 `"apiBase": "https://api.minimaxi.com/v1"`。
+> - **VolcEngine / BytePlus Coding Plan**：请使用专用 provider `volcengineCodingPlan` 或 `byteplusCodingPlan`，不要使用按量计费的 `volcengine` / `byteplus`。
+> - **Zhipu Coding Plan**：如果你使用智谱 coding plan，请在 zhipu provider 中设置 `"apiBase": "https://open.bigmodel.cn/api/coding/paas/v4"`。
+> - **Alibaba Cloud BaiLian**：如果你使用百炼 OpenAI 兼容端点，请在 dashscope provider 中设置 `"apiBase": "https://dashscope.aliyuncs.com/compatible-mode/v1"`。
+> - **Step Fun（中国大陆）**：如果 API Key 来自 stepfun.com，请在 stepfun provider 中设置 `"apiBase": "https://api.stepfun.com/v1"`。
+> - **Step Fun Step Plan**：nanobot 社区专属优惠链接：[海外](https://platform.stepfun.ai/step-plan) · [中国大陆](https://platform.stepfun.com/step-plan)
 
-| Provider | Purpose | Get API Key |
+| Provider | 用途 | 获取 API Key |
 |----------|---------|-------------|
-| `custom` | Any OpenAI-compatible endpoint | — |
-| `openrouter` | LLM (recommended, access to all models) | [openrouter.ai](https://openrouter.ai) |
-| `volcengine` | LLM (VolcEngine, pay-per-use) | [Coding Plan](https://www.volcengine.com/activity/codingplan?utm_campaign=nanobot&utm_content=nanobot&utm_medium=devrel&utm_source=OWO&utm_term=nanobot) · [volcengine.com](https://www.volcengine.com) |
-| `byteplus` | LLM (VolcEngine international, pay-per-use) | [Coding Plan](https://www.byteplus.com/en/activity/codingplan?utm_campaign=nanobot&utm_content=nanobot&utm_medium=devrel&utm_source=OWO&utm_term=nanobot) · [byteplus.com](https://www.byteplus.com) |
-| `anthropic` | LLM (Claude direct) | [console.anthropic.com](https://console.anthropic.com) |
-| `azure_openai` | LLM (Azure OpenAI) | [portal.azure.com](https://portal.azure.com) |
-| `openai` | LLM (GPT direct) | [platform.openai.com](https://platform.openai.com) |
-| `deepseek` | LLM (DeepSeek direct) | [platform.deepseek.com](https://platform.deepseek.com) |
-| `groq` | LLM + **Voice transcription** (Whisper) | [console.groq.com](https://console.groq.com) |
-| `minimax` | LLM (MiniMax direct) | [platform.minimaxi.com](https://platform.minimaxi.com) |
-| `gemini` | LLM (Gemini direct) | [aistudio.google.com](https://aistudio.google.com) |
-| `aihubmix` | LLM (API gateway, access to all models) | [aihubmix.com](https://aihubmix.com) |
-| `siliconflow` | LLM (SiliconFlow/硅基流动) | [siliconflow.cn](https://siliconflow.cn) |
-| `dashscope` | LLM (Qwen) | [dashscope.console.aliyun.com](https://dashscope.console.aliyun.com) |
-| `moonshot` | LLM (Moonshot/Kimi) | [platform.moonshot.cn](https://platform.moonshot.cn) |
-| `zhipu` | LLM (Zhipu GLM) | [open.bigmodel.cn](https://open.bigmodel.cn) |
-| `ollama` | LLM (local, Ollama) | — |
+| `custom` | 任意 OpenAI 兼容端点 | — |
+| `openrouter` | LLM（推荐，可访问全模型） | [openrouter.ai](https://openrouter.ai) |
+| `volcengine` | LLM（VolcEngine，按量计费） | [Coding Plan](https://www.volcengine.com/activity/codingplan?utm_campaign=nanobot&utm_content=nanobot&utm_medium=devrel&utm_source=OWO&utm_term=nanobot) · [volcengine.com](https://www.volcengine.com) |
+| `byteplus` | LLM（VolcEngine 国际版，按量计费） | [Coding Plan](https://www.byteplus.com/en/activity/codingplan?utm_campaign=nanobot&utm_content=nanobot&utm_medium=devrel&utm_source=OWO&utm_term=nanobot) · [byteplus.com](https://www.byteplus.com) |
+| `anthropic` | LLM（Claude 官方） | [console.anthropic.com](https://console.anthropic.com) |
+| `azure_openai` | LLM（Azure OpenAI） | [portal.azure.com](https://portal.azure.com) |
+| `openai` | LLM（GPT 官方） | [platform.openai.com](https://platform.openai.com) |
+| `deepseek` | LLM（DeepSeek 官方） | [platform.deepseek.com](https://platform.deepseek.com) |
+| `groq` | LLM + **语音转写**（Whisper） | [console.groq.com](https://console.groq.com) |
+| `minimax` | LLM（MiniMax 官方） | [platform.minimaxi.com](https://platform.minimaxi.com) |
+| `gemini` | LLM（Gemini 官方） | [aistudio.google.com](https://aistudio.google.com) |
+| `aihubmix` | LLM（API 网关，可访问全模型） | [aihubmix.com](https://aihubmix.com) |
+| `siliconflow` | LLM（SiliconFlow/硅基流动） | [siliconflow.cn](https://siliconflow.cn) |
+| `dashscope` | LLM（Qwen） | [dashscope.console.aliyun.com](https://dashscope.console.aliyun.com) |
+| `moonshot` | LLM（Moonshot/Kimi） | [platform.moonshot.cn](https://platform.moonshot.cn) |
+| `zhipu` | LLM（智谱 GLM） | [open.bigmodel.cn](https://open.bigmodel.cn) |
+| `ollama` | LLM（本地，Ollama） | — |
 | `mistral` | LLM | [docs.mistral.ai](https://docs.mistral.ai/) |
-| `stepfun` | LLM (Step Fun/阶跃星辰) | [platform.stepfun.com](https://platform.stepfun.com) |
-| `ovms` | LLM (local, OpenVINO Model Server) | [docs.openvino.ai](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html) |
-| `vllm` | LLM (local, any OpenAI-compatible server) | — |
-| `openai_codex` | LLM (Codex, OAuth) | `nanobot provider login openai-codex` |
-| `github_copilot` | LLM (GitHub Copilot, OAuth) | `nanobot provider login github-copilot` |
+| `stepfun` | LLM（Step Fun/阶跃星辰） | [platform.stepfun.com](https://platform.stepfun.com) |
+| `ovms` | LLM（本地，OpenVINO Model Server） | [docs.openvino.ai](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html) |
+| `vllm` | LLM（本地，任意 OpenAI 兼容服务） | — |
+| `openai_codex` | LLM（Codex，OAuth） | `nanobot provider login openai-codex` |
+| `github_copilot` | LLM（GitHub Copilot，OAuth） | `nanobot provider login github-copilot` |
 
 <details>
 <summary><b>OpenAI Codex (OAuth)</b></summary>
 
-Codex uses OAuth instead of API keys. Requires a ChatGPT Plus or Pro account.
-No `providers.openaiCodex` block is needed in `config.json`; `nanobot provider login` stores the OAuth session outside config.
+Codex 使用 OAuth，而不是 API Key。需要 ChatGPT Plus 或 Pro 账号。
+`config.json` 不需要 `providers.openaiCodex` 配置块；`nanobot provider login` 会把 OAuth 会话存储在配置外。
 
-**1. Login:**
+**1. 登录：**
 ```bash
 nanobot provider login openai-codex
 ```
 
-**2. Set model** (merge into `~/.nanobot/config.json`):
+**2. 设置模型**（合并到 `~/.nanobot/config.json`）：
 ```json
 {
   "agents": {
@@ -902,18 +902,18 @@ nanobot provider login openai-codex
 }
 ```
 
-**3. Chat:**
+**3. 开聊：**
 ```bash
 nanobot agent -m "Hello!"
 
-# Target a specific workspace/config locally
+# 本地指定某个 workspace/config
 nanobot agent -c ~/.nanobot-telegram/config.json -m "Hello!"
 
-# One-off workspace override on top of that config
+# 在该 config 基础上临时覆盖 workspace
 nanobot agent -c ~/.nanobot-telegram/config.json -w /tmp/nanobot-telegram-test -m "Hello!"
 ```
 
-> Docker users: use `docker run -it` for interactive OAuth login.
+> Docker 用户：交互式 OAuth 登录请使用 `docker run -it`。
 
 </details>
 
@@ -921,15 +921,15 @@ nanobot agent -c ~/.nanobot-telegram/config.json -w /tmp/nanobot-telegram-test -
 <details>
 <summary><b>GitHub Copilot (OAuth)</b></summary>
 
-GitHub Copilot uses OAuth instead of API keys. Requires a [GitHub account with a plan](https://github.com/features/copilot/plans) configured.
-No `providers.githubCopilot` block is needed in `config.json`; `nanobot provider login` stores the OAuth session outside config.
+GitHub Copilot 使用 OAuth，而不是 API Key。需要配置好套餐的 [GitHub 账号](https://github.com/features/copilot/plans)。
+`config.json` 不需要 `providers.githubCopilot` 配置块；`nanobot provider login` 会把 OAuth 会话存储在配置外。
 
-**1. Login:**
+**1. 登录：**
 ```bash
 nanobot provider login github-copilot
 ```
 
-**2. Set model** (merge into `~/.nanobot/config.json`):
+**2. 设置模型**（合并到 `~/.nanobot/config.json`）：
 ```json
 {
   "agents": {
@@ -940,25 +940,25 @@ nanobot provider login github-copilot
 }
 ```
 
-**3. Chat:**
+**3. 开聊：**
 ```bash
 nanobot agent -m "Hello!"
 
-# Target a specific workspace/config locally
+# 本地指定某个 workspace/config
 nanobot agent -c ~/.nanobot-telegram/config.json -m "Hello!"
 
-# One-off workspace override on top of that config
+# 在该 config 基础上临时覆盖 workspace
 nanobot agent -c ~/.nanobot-telegram/config.json -w /tmp/nanobot-telegram-test -m "Hello!"
 ```
 
-> Docker users: use `docker run -it` for interactive OAuth login.
+> Docker 用户：交互式 OAuth 登录请使用 `docker run -it`。
 
 </details>
 
 <details>
-<summary><b>Custom Provider (Any OpenAI-compatible API)</b></summary>
+<summary><b>自定义 Provider（任意 OpenAI 兼容 API）</b></summary>
 
-Connects directly to any OpenAI-compatible endpoint — LM Studio, llama.cpp, Together AI, Fireworks, Azure OpenAI, or any self-hosted server. Model name is passed as-is.
+可直连任何 OpenAI 兼容端点：LM Studio、llama.cpp、Together AI、Fireworks、Azure OpenAI 或任意自托管服务。模型名按原样透传。
 
 ```json
 {
@@ -976,21 +976,21 @@ Connects directly to any OpenAI-compatible endpoint — LM Studio, llama.cpp, To
 }
 ```
 
-> For local servers that don't require a key, set `apiKey` to any non-empty string (e.g. `"no-key"`).
+> 对于不需要 key 的本地服务，请把 `apiKey` 设为任意非空字符串（例如 `"no-key"`）。
 
 </details>
 
 <details>
-<summary><b>Ollama (local)</b></summary>
+<summary><b>Ollama（本地）</b></summary>
 
-Run a local model with Ollama, then add to config:
+使用 Ollama 跑本地模型，然后加入配置：
 
-**1. Start Ollama** (example):
+**1. 启动 Ollama**（示例）：
 ```bash
 ollama run llama3.2
 ```
 
-**2. Add to config** (partial — merge into `~/.nanobot/config.json`):
+**2. 写入配置**（部分配置，合并到 `~/.nanobot/config.json`）：
 ```json
 {
   "providers": {
@@ -1007,18 +1007,18 @@ ollama run llama3.2
 }
 ```
 
-> `provider: "auto"` also works when `providers.ollama.apiBase` is configured, but setting `"provider": "ollama"` is the clearest option.
+> 当 `providers.ollama.apiBase` 已配置时，`provider: "auto"` 也可工作；但显式设为 `"provider": "ollama"` 更清晰。
 
 </details>
 
 <details>
-<summary><b>OpenVINO Model Server (local / OpenAI-compatible)</b></summary>
+<summary><b>OpenVINO Model Server（本地 / OpenAI 兼容）</b></summary>
 
-Run LLMs locally on Intel GPUs using [OpenVINO Model Server](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html). OVMS exposes an OpenAI-compatible API at `/v3`.
+使用 [OpenVINO Model Server](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html) 在 Intel GPU 上本地运行 LLM。OVMS 在 `/v3` 暴露 OpenAI 兼容 API。
 
-> Requires Docker and an Intel GPU with driver access (`/dev/dri`).
+> 需要 Docker 和带驱动访问（`/dev/dri`）的 Intel GPU。
 
-**1. Pull the model** (example):
+**1. 拉取模型**（示例）：
 
 ```bash
 mkdir -p ov/models && cd ov
@@ -1039,9 +1039,9 @@ docker run -d \
   --target_device GPU
 ```
 
-> This downloads the model weights. Wait for the container to finish before proceeding.
+> 这一步会下载模型权重。请等待容器执行完成后再继续。
 
-**2. Start the server** (example):
+**2. 启动服务**（示例）：
 
 ```bash
 docker run -d \
@@ -1064,7 +1064,7 @@ docker run -d \
   --target_device GPU
 ```
 
-**3. Add to config** (partial — merge into `~/.nanobot/config.json`):
+**3. 写入配置**（部分配置，合并到 `~/.nanobot/config.json`）：
 
 ```json
 {
@@ -1082,23 +1082,23 @@ docker run -d \
 }
 ```
 
-> OVMS is a local server — no API key required. Supports tool calling (`--tool_parser gptoss`), reasoning (`--reasoning_parser gptoss`), and streaming.
-> See the [official OVMS docs](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html) for more details.
+> OVMS 是本地服务，不需要 API Key。支持工具调用（`--tool_parser gptoss`）、推理（`--reasoning_parser gptoss`）和流式输出。
+> 更多细节见 [官方 OVMS 文档](https://docs.openvino.ai/2026/model-server/ovms_docs_llm_quickstart.html)。
 </details>
 
 <details>
-<summary><b>vLLM (local / OpenAI-compatible)</b></summary>
+<summary><b>vLLM（本地 / OpenAI 兼容）</b></summary>
 
-Run your own model with vLLM or any OpenAI-compatible server, then add to config:
+使用 vLLM 或其他 OpenAI 兼容服务运行你自己的模型，然后加入配置：
 
-**1. Start the server** (example):
+**1. 启动服务**（示例）：
 ```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct --port 8000
 ```
 
-**2. Add to config** (partial — merge into `~/.nanobot/config.json`):
+**2. 写入配置**（部分配置，合并到 `~/.nanobot/config.json`）：
 
-*Provider (key can be any non-empty string for local):*
+*Provider（本地服务可用任意非空字符串作为 key）：*
 ```json
 {
   "providers": {
@@ -1110,7 +1110,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct --port 8000
 }
 ```
 
-*Model:*
+*模型：*
 ```json
 {
   "agents": {
@@ -1124,24 +1124,24 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct --port 8000
 </details>
 
 <details>
-<summary><b>Adding a New Provider (Developer Guide)</b></summary>
+<summary><b>新增 Provider（开发者指南）</b></summary>
 
-nanobot uses a **Provider Registry** (`nanobot/providers/registry.py`) as the single source of truth.
-Adding a new provider only takes **2 steps** — no if-elif chains to touch.
+nanobot 使用 **Provider Registry**（`nanobot/providers/registry.py`）作为唯一事实来源。
+新增一个 provider 只需 **2 步**，无需修改 if-elif 链。
 
-**Step 1.** Add a `ProviderSpec` entry to `PROVIDERS` in `nanobot/providers/registry.py`:
+**步骤 1：** 在 `nanobot/providers/registry.py` 的 `PROVIDERS` 中添加一个 `ProviderSpec`：
 
 ```python
 ProviderSpec(
-    name="myprovider",                   # config field name
-    keywords=("myprovider", "mymodel"),  # model-name keywords for auto-matching
-    env_key="MYPROVIDER_API_KEY",        # env var name
-    display_name="My Provider",          # shown in `nanobot status`
-    default_api_base="https://api.myprovider.com/v1",  # OpenAI-compatible endpoint
+    name="myprovider",                   # 配置字段名
+    keywords=("myprovider", "mymodel"),  # 模型名关键词（自动匹配）
+    env_key="MYPROVIDER_API_KEY",        # 环境变量名
+    display_name="My Provider",          # 在 `nanobot status` 中显示
+    default_api_base="https://api.myprovider.com/v1",  # OpenAI 兼容端点
 )
 ```
 
-**Step 2.** Add a field to `ProvidersConfig` in `nanobot/config/schema.py`:
+**步骤 2：** 在 `nanobot/config/schema.py` 的 `ProvidersConfig` 中增加字段：
 
 ```python
 class ProvidersConfig(BaseModel):
@@ -1149,26 +1149,26 @@ class ProvidersConfig(BaseModel):
     myprovider: ProviderConfig = ProviderConfig()
 ```
 
-That's it! Environment variables, model routing, config matching, and `nanobot status` display will all work automatically.
+完成。环境变量、模型路由、配置匹配和 `nanobot status` 展示都会自动生效。
 
-**Common `ProviderSpec` options:**
+**常用 `ProviderSpec` 选项：**
 
-| Field | Description | Example |
+| 字段 | 说明 | 示例 |
 |-------|-------------|---------|
-| `default_api_base` | OpenAI-compatible base URL | `"https://api.deepseek.com"` |
-| `env_extras` | Additional env vars to set | `(("ZHIPUAI_API_KEY", "{api_key}"),)` |
-| `model_overrides` | Per-model parameter overrides | `(("kimi-k2.5", {"temperature": 1.0}),)` |
-| `is_gateway` | Can route any model (like OpenRouter) | `True` |
-| `detect_by_key_prefix` | Detect gateway by API key prefix | `"sk-or-"` |
-| `detect_by_base_keyword` | Detect gateway by API base URL | `"openrouter"` |
-| `strip_model_prefix` | Strip provider prefix before sending to gateway | `True` (for AiHubMix) |
-| `supports_max_completion_tokens` | Use `max_completion_tokens` instead of `max_tokens`; required for providers that reject both being set simultaneously (e.g. VolcEngine) | `True` |
+| `default_api_base` | OpenAI 兼容 base URL | `"https://api.deepseek.com"` |
+| `env_extras` | 需要额外设置的环境变量 | `(("ZHIPUAI_API_KEY", "{api_key}"),)` |
+| `model_overrides` | 按模型覆盖参数 | `(("kimi-k2.5", {"temperature": 1.0}),)` |
+| `is_gateway` | 是否可路由任意模型（类似 OpenRouter） | `True` |
+| `detect_by_key_prefix` | 按 API key 前缀识别网关 | `"sk-or-"` |
+| `detect_by_base_keyword` | 按 API base URL 关键词识别网关 | `"openrouter"` |
+| `strip_model_prefix` | 发送到网关前去掉 provider 前缀 | `True`（AiHubMix） |
+| `supports_max_completion_tokens` | 使用 `max_completion_tokens` 代替 `max_tokens`；适用于拒绝同时设置两者的 provider（如 VolcEngine） | `True` |
 
 </details>
 
-### Channel Settings
+### 渠道通用设置
 
-Global settings that apply to all channels. Configure under the `channels` section in `~/.nanobot/config.json`:
+适用于所有渠道的全局设置。请在 `~/.nanobot/config.json` 的 `channels` 下配置：
 
 ```json
 {
@@ -1181,46 +1181,46 @@ Global settings that apply to all channels. Configure under the `channels` secti
 }
 ```
 
-| Setting | Default | Description |
+| 设置项 | 默认值 | 说明 |
 |---------|---------|-------------|
-| `sendProgress` | `true` | Stream agent's text progress to the channel |
-| `sendToolHints` | `false` | Stream tool-call hints (e.g. `read_file("…")`) |
-| `sendMaxRetries` | `3` | Max delivery attempts per outbound message, including the initial send (0-10 configured, minimum 1 actual attempt) |
+| `sendProgress` | `true` | 把 agent 的文本进度流式发送到渠道 |
+| `sendToolHints` | `false` | 流式发送工具调用提示（如 `read_file("…")`） |
+| `sendMaxRetries` | `3` | 每条外发消息最大投递次数（含首次发送；配置范围 0-10，实际最少 1 次） |
 
-#### Retry Behavior
+#### 重试机制
 
-When a channel send operation raises an error, nanobot retries with exponential backoff:
+当渠道发送发生错误时，nanobot 使用指数退避重试：
 
-- **Attempt 1**: Initial send
-- **Attempts 2-4**: Retry delays are 1s, 2s, 4s
-- **Attempts 5+**: Retry delay caps at 4s
-- **Transient failures** (network hiccups, temporary API limits): Retry usually succeeds
-- **Permanent failures** (invalid token, channel banned): All retries fail
+- **第 1 次**：首次发送
+- **第 2-4 次**：重试间隔分别为 1s、2s、4s
+- **第 5 次及以后**：重试间隔封顶为 4s
+- **瞬时故障**（网络抖动、临时限流）：通常重试可恢复
+- **永久故障**（token 无效、渠道封禁）：所有重试都会失败
 
 > [!NOTE]
-> When a channel is completely unavailable, there's no way to notify the user since we cannot reach them through that channel. Monitor logs for "Failed to send to {channel} after N attempts" to detect persistent delivery failures.
+> 当某个渠道完全不可达时，我们无法通过该渠道通知用户。请监控日志中的 “Failed to send to {channel} after N attempts” 以识别持续投递失败。
 
-### Web Search
+### 网络搜索
 
 > [!TIP]
-> Use `proxy` in `tools.web` to route all web requests (search + fetch) through a proxy:
+> 在 `tools.web` 里设置 `proxy`，可将所有 web 请求（搜索 + 抓取）走代理：
 > ```json
 > { "tools": { "web": { "proxy": "http://127.0.0.1:7890" } } }
 > ```
 
-nanobot supports multiple web search providers. Configure in `~/.nanobot/config.json` under `tools.web.search`.
+nanobot 支持多种 web 搜索 provider。配置路径：`~/.nanobot/config.json` 的 `tools.web.search`。
 
-| Provider | Config fields | Env var fallback | Free |
+| Provider | 配置字段 | 环境变量回退 | 免费 |
 |----------|--------------|------------------|------|
-| `brave` (default) | `apiKey` | `BRAVE_API_KEY` | No |
-| `tavily` | `apiKey` | `TAVILY_API_KEY` | No |
-| `jina` | `apiKey` | `JINA_API_KEY` | Free tier (10M tokens) |
-| `searxng` | `baseUrl` | `SEARXNG_BASE_URL` | Yes (self-hosted) |
-| `duckduckgo` | — | — | Yes |
+| `brave`（默认） | `apiKey` | `BRAVE_API_KEY` | 否 |
+| `tavily` | `apiKey` | `TAVILY_API_KEY` | 否 |
+| `jina` | `apiKey` | `JINA_API_KEY` | 免费额度（10M tokens） |
+| `searxng` | `baseUrl` | `SEARXNG_BASE_URL` | 是（自托管） |
+| `duckduckgo` | — | — | 是 |
 
-When credentials are missing, nanobot automatically falls back to DuckDuckGo.
+当缺少凭据时，nanobot 会自动回退到 DuckDuckGo。
 
-**Brave** (default):
+**Brave**（默认）：
 ```json
 {
   "tools": {
@@ -1234,7 +1234,7 @@ When credentials are missing, nanobot automatically falls back to DuckDuckGo.
 }
 ```
 
-**Tavily:**
+**Tavily：**
 ```json
 {
   "tools": {
@@ -1248,7 +1248,7 @@ When credentials are missing, nanobot automatically falls back to DuckDuckGo.
 }
 ```
 
-**Jina** (free tier with 10M tokens):
+**Jina**（免费额度 10M tokens）：
 ```json
 {
   "tools": {
@@ -1262,7 +1262,7 @@ When credentials are missing, nanobot automatically falls back to DuckDuckGo.
 }
 ```
 
-**SearXNG** (self-hosted, no API key needed):
+**SearXNG**（自托管，无需 API key）：
 ```json
 {
   "tools": {
@@ -1276,7 +1276,7 @@ When credentials are missing, nanobot automatically falls back to DuckDuckGo.
 }
 ```
 
-**DuckDuckGo** (zero config):
+**DuckDuckGo**（零配置）：
 ```json
 {
   "tools": {
@@ -1289,21 +1289,21 @@ When credentials are missing, nanobot automatically falls back to DuckDuckGo.
 }
 ```
 
-| Option | Type | Default | Description |
+| 选项 | 类型 | 默认值 | 说明 |
 |--------|------|---------|-------------|
-| `provider` | string | `"brave"` | Search backend: `brave`, `tavily`, `jina`, `searxng`, `duckduckgo` |
-| `apiKey` | string | `""` | API key for Brave or Tavily |
-| `baseUrl` | string | `""` | Base URL for SearXNG |
-| `maxResults` | integer | `5` | Results per search (1–10) |
+| `provider` | string | `"brave"` | 搜索后端：`brave`、`tavily`、`jina`、`searxng`、`duckduckgo` |
+| `apiKey` | string | `""` | Brave 或 Tavily 的 API key |
+| `baseUrl` | string | `""` | SearXNG 的 base URL |
+| `maxResults` | integer | `5` | 每次搜索返回数量（1–10） |
 
-### MCP (Model Context Protocol)
+### MCP（Model Context Protocol）
 
 > [!TIP]
-> The config format is compatible with Claude Desktop / Cursor. You can copy MCP server configs directly from any MCP server's README.
+> 该配置格式兼容 Claude Desktop / Cursor。你可以把任意 MCP 服务 README 里的配置直接复制过来。
 
-nanobot supports [MCP](https://modelcontextprotocol.io/) — connect external tool servers and use them as native agent tools.
+nanobot 支持 [MCP](https://modelcontextprotocol.io/) —— 可接入外部工具服务，并把它们当作原生工具使用。
 
-Add MCP servers to your `config.json`:
+在你的 `config.json` 中添加 MCP 服务：
 
 ```json
 {
@@ -1324,14 +1324,14 @@ Add MCP servers to your `config.json`:
 }
 ```
 
-Two transport modes are supported:
+支持两种传输模式：
 
-| Mode | Config | Example |
+| 模式 | 配置 | 示例 |
 |------|--------|---------|
-| **Stdio** | `command` + `args` | Local process via `npx` / `uvx` |
-| **HTTP** | `url` + `headers` (optional) | Remote endpoint (`https://mcp.example.com/sse`) |
+| **Stdio** | `command` + `args` | 通过 `npx` / `uvx` 启动本地进程 |
+| **HTTP** | `url` + `headers`（可选） | 远端端点（`https://mcp.example.com/sse`） |
 
-Use `toolTimeout` to override the default 30s per-call timeout for slow servers:
+对较慢服务，可用 `toolTimeout` 覆盖默认单次调用 30s 超时：
 
 ```json
 {
@@ -1346,7 +1346,7 @@ Use `toolTimeout` to override the default 30s per-call timeout for slow servers:
 }
 ```
 
-Use `enabledTools` to register only a subset of tools from an MCP server:
+使用 `enabledTools` 仅注册某个 MCP 服务中的部分工具：
 
 ```json
 {
@@ -1362,36 +1362,36 @@ Use `enabledTools` to register only a subset of tools from an MCP server:
 }
 ```
 
-`enabledTools` accepts either the raw MCP tool name (for example `read_file`) or the wrapped nanobot tool name (for example `mcp_filesystem_write_file`).
+`enabledTools` 可写原始 MCP 工具名（如 `read_file`），也可写 nanobot 包装后的工具名（如 `mcp_filesystem_write_file`）。
 
-- Omit `enabledTools`, or set it to `["*"]`, to register all tools.
-- Set `enabledTools` to `[]` to register no tools from that server.
-- Set `enabledTools` to a non-empty list of names to register only that subset.
+- 省略 `enabledTools`，或设为 `["*"]`，表示注册全部工具。
+- 设为 `[]`，表示该服务不注册任何工具。
+- 设为非空列表，表示仅注册名单内工具。
 
-MCP tools are automatically discovered and registered on startup. The LLM can use them alongside built-in tools — no extra configuration needed.
-
-
+MCP 工具会在启动时自动发现并注册。LLM 可与内置工具一起调用，无需额外配置。
 
 
-### Security
+
+
+### 安全
 
 > [!TIP]
-> For production deployments, set `"restrictToWorkspace": true` in your config to sandbox the agent.
-> In `v0.1.4.post3` and earlier, an empty `allowFrom` allowed all senders. Since `v0.1.4.post4`, empty `allowFrom` denies all access by default. To allow all senders, set `"allowFrom": ["*"]`.
+> 生产环境建议在配置中设置 `"restrictToWorkspace": true`，将 agent 限制在工作目录内。
+> 在 `v0.1.4.post3` 及更早版本中，空 `allowFrom` 表示允许全部发送者；从 `v0.1.4.post4` 起，空 `allowFrom` 默认拒绝全部访问。若需允许所有发送者，请显式设置 `"allowFrom": ["*"]`。
 
-| Option | Default | Description |
+| 选项 | 默认值 | 说明 |
 |--------|---------|-------------|
-| `tools.restrictToWorkspace` | `false` | When `true`, restricts **all** agent tools (shell, file read/write/edit, list) to the workspace directory. Prevents path traversal and out-of-scope access. |
-| `tools.exec.enable` | `true` | When `false`, the shell `exec` tool is not registered at all. Use this to completely disable shell command execution. |
-| `tools.exec.pathAppend` | `""` | Extra directories to append to `PATH` when running shell commands (e.g. `/usr/sbin` for `ufw`). |
-| `channels.*.allowFrom` | `[]` (deny all) | Whitelist of user IDs. Empty denies all; use `["*"]` to allow everyone. |
+| `tools.restrictToWorkspace` | `false` | 为 `true` 时，将**所有** agent 工具（shell、文件读写/编辑、list）限制在 workspace 目录内，防止路径穿越和越界访问。 |
+| `tools.exec.enable` | `true` | 为 `false` 时，不注册 shell `exec` 工具，可彻底禁用命令执行。 |
+| `tools.exec.pathAppend` | `""` | 执行 shell 命令时追加到 `PATH` 的目录（如 `ufw` 可能需要 `/usr/sbin`）。 |
+| `channels.*.allowFrom` | `[]`（拒绝全部） | 用户 ID 白名单。空数组拒绝全部；`["*"]` 允许所有。 |
 
 
-### Timezone
+### 时区
 
-Time is context. Context should be precise.
+时间是上下文。上下文应当精确。
 
-By default, nanobot uses `UTC` for runtime time context. If you want the agent to think in your local time, set `agents.defaults.timezone` to a valid [IANA timezone name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones):
+默认情况下，nanobot 使用 `UTC` 作为运行时时间上下文。若希望 agent 按你的本地时间思考，请设置 `agents.defaults.timezone` 为合法的 [IANA 时区名](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)：
 
 ```json
 {
@@ -1403,82 +1403,82 @@ By default, nanobot uses `UTC` for runtime time context. If you want the agent t
 }
 ```
 
-This affects runtime time strings shown to the model, such as runtime context and heartbeat prompts. It also becomes the default timezone for cron schedules when a cron expression omits `tz`, and for one-shot `at` times when the ISO datetime has no explicit offset.
+这会影响传给模型的运行时时间字符串（例如 runtime context 与 heartbeat prompts）。当 cron 表达式未显式提供 `tz` 时，也会作为默认时区；同样地，当一次性 `at` 时间的 ISO datetime 没有显式 offset 时，也使用该时区。
 
-Common examples: `UTC`, `America/New_York`, `America/Los_Angeles`, `Europe/London`, `Europe/Berlin`, `Asia/Tokyo`, `Asia/Shanghai`, `Asia/Singapore`, `Australia/Sydney`.
+常见示例：`UTC`、`America/New_York`、`America/Los_Angeles`、`Europe/London`、`Europe/Berlin`、`Asia/Tokyo`、`Asia/Shanghai`、`Asia/Singapore`、`Australia/Sydney`。
 
-> Need another timezone? Browse the full [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+> 需要其他时区？查看完整 [IANA 时区数据库](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
 
-## 🧩 Multiple Instances
+## 🧩 多实例
 
-Run multiple nanobot instances simultaneously with separate configs and runtime data. Use `--config` as the main entrypoint. Optionally pass `--workspace` during `onboard` when you want to initialize or update the saved workspace for a specific instance.
+你可以同时运行多个 nanobot 实例，每个实例使用独立配置与运行时数据。主入口是 `--config`。当你想为特定实例初始化或更新已保存 workspace 时，可在 `onboard` 时额外传 `--workspace`。
 
-### Quick Start
+### 快速开始
 
-If you want each instance to have its own dedicated workspace from the start, pass both `--config` and `--workspace` during onboarding.
+如果你希望每个实例一开始就使用独立 workspace，请在 onboarding 时同时传 `--config` 与 `--workspace`。
 
-**Initialize instances:**
+**初始化实例：**
 
 ```bash
-# Create separate instance configs and workspaces
+# 创建独立实例配置与工作目录
 nanobot onboard --config ~/.nanobot-telegram/config.json --workspace ~/.nanobot-telegram/workspace
 nanobot onboard --config ~/.nanobot-discord/config.json --workspace ~/.nanobot-discord/workspace
 nanobot onboard --config ~/.nanobot-feishu/config.json --workspace ~/.nanobot-feishu/workspace
 ```
 
-**Configure each instance:**
+**配置各实例：**
 
-Edit `~/.nanobot-telegram/config.json`, `~/.nanobot-discord/config.json`, etc. with different channel settings. The workspace you passed during `onboard` is saved into each config as that instance's default workspace.
+分别编辑 `~/.nanobot-telegram/config.json`、`~/.nanobot-discord/config.json` 等，写入不同渠道配置。你在 `onboard` 传入的 workspace 会保存为该实例默认 workspace。
 
-**Run instances:**
+**运行实例：**
 
 ```bash
-# Instance A - Telegram bot
+# 实例 A - Telegram bot
 nanobot gateway --config ~/.nanobot-telegram/config.json
 
-# Instance B - Discord bot  
+# 实例 B - Discord bot  
 nanobot gateway --config ~/.nanobot-discord/config.json
 
-# Instance C - Feishu bot with custom port
+# 实例 C - Feishu bot（自定义端口）
 nanobot gateway --config ~/.nanobot-feishu/config.json --port 18792
 ```
 
-### Path Resolution
+### 路径解析
 
-When using `--config`, nanobot derives its runtime data directory from the config file location. The workspace still comes from `agents.defaults.workspace` unless you override it with `--workspace`.
+使用 `--config` 时，nanobot 会基于配置文件位置推导运行时数据目录。workspace 仍来自 `agents.defaults.workspace`，除非你用 `--workspace` 覆盖。
 
-To open a CLI session against one of these instances locally:
+如果你想在本地 CLI 会话中操作某个实例：
 
 ```bash
 nanobot agent -c ~/.nanobot-telegram/config.json -m "Hello from Telegram instance"
 nanobot agent -c ~/.nanobot-discord/config.json -m "Hello from Discord instance"
 
-# Optional one-off workspace override
+# 可选：临时覆盖 workspace
 nanobot agent -c ~/.nanobot-telegram/config.json -w /tmp/nanobot-telegram-test
 ```
 
-> `nanobot agent` starts a local CLI agent using the selected workspace/config. It does not attach to or proxy through an already running `nanobot gateway` process.
+> `nanobot agent` 启动的是本地 CLI agent，会使用所选 workspace/config。它不会附着或代理到已在运行的 `nanobot gateway` 进程。
 
-| Component | Resolved From | Example |
+| 组件 | 来源 | 示例 |
 |-----------|---------------|---------|
-| **Config** | `--config` path | `~/.nanobot-A/config.json` |
-| **Workspace** | `--workspace` or config | `~/.nanobot-A/workspace/` |
-| **Cron Jobs** | config directory | `~/.nanobot-A/cron/` |
-| **Media / runtime state** | config directory | `~/.nanobot-A/media/` |
+| **Config** | `--config` 路径 | `~/.nanobot-A/config.json` |
+| **Workspace** | `--workspace` 或配置文件 | `~/.nanobot-A/workspace/` |
+| **Cron Jobs** | 配置目录 | `~/.nanobot-A/cron/` |
+| **Media / runtime state** | 配置目录 | `~/.nanobot-A/media/` |
 
-### How It Works
+### 工作机制
 
-- `--config` selects which config file to load
-- By default, the workspace comes from `agents.defaults.workspace` in that config
-- If you pass `--workspace`, it overrides the workspace from the config file
+- `--config` 决定加载哪个配置文件
+- 默认 workspace 来自该配置中的 `agents.defaults.workspace`
+- 若传入 `--workspace`，会覆盖配置中的 workspace
 
-### Minimal Setup
+### 最小化配置
 
-1. Copy your base config into a new instance directory.
-2. Set a different `agents.defaults.workspace` for that instance.
-3. Start the instance with `--config`.
+1. 复制基础配置到新的实例目录。
+2. 为该实例设置不同的 `agents.defaults.workspace`。
+3. 使用 `--config` 启动该实例。
 
-Example config:
+示例配置：
 
 ```json
 {
@@ -1500,60 +1500,60 @@ Example config:
 }
 ```
 
-Start separate instances:
+启动独立实例：
 
 ```bash
 nanobot gateway --config ~/.nanobot-telegram/config.json
 nanobot gateway --config ~/.nanobot-discord/config.json
 ```
 
-Override workspace for one-off runs when needed:
+按需在单次运行中覆盖 workspace：
 
 ```bash
 nanobot gateway --config ~/.nanobot-telegram/config.json --workspace /tmp/nanobot-telegram-test
 ```
 
-### Common Use Cases
+### 常见使用场景
 
-- Run separate bots for Telegram, Discord, Feishu, and other platforms
-- Keep testing and production instances isolated
-- Use different models or providers for different teams
-- Serve multiple tenants with separate configs and runtime data
+- 为 Telegram、Discord、Feishu 等平台分别运行独立机器人
+- 隔离测试环境与生产环境
+- 不同团队使用不同模型或 provider
+- 用独立配置与运行时数据服务多租户
 
-### Notes
+### 说明
 
-- Each instance must use a different port if they run at the same time
-- Use a different workspace per instance if you want isolated memory, sessions, and skills
-- `--workspace` overrides the workspace defined in the config file
-- Cron jobs and runtime media/state are derived from the config directory
+- 多实例同时运行时必须使用不同端口
+- 若希望记忆、会话、技能彼此隔离，请为每个实例使用不同 workspace
+- `--workspace` 会覆盖配置文件中的 workspace
+- Cron 与媒体/状态目录由配置目录推导
 
-## 💻 CLI Reference
+## 💻 CLI 参考
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| `nanobot onboard` | Initialize config & workspace at `~/.nanobot/` |
-| `nanobot onboard --wizard` | Launch the interactive onboarding wizard |
-| `nanobot onboard -c <config> -w <workspace>` | Initialize or refresh a specific instance config and workspace |
-| `nanobot agent -m "..."` | Chat with the agent |
-| `nanobot agent -w <workspace>` | Chat against a specific workspace |
-| `nanobot agent -w <workspace> -c <config>` | Chat against a specific workspace/config |
-| `nanobot agent` | Interactive chat mode |
-| `nanobot agent --no-markdown` | Show plain-text replies |
-| `nanobot agent --logs` | Show runtime logs during chat |
-| `nanobot gateway` | Start the gateway |
-| `nanobot status` | Show status |
-| `nanobot provider login openai-codex` | OAuth login for providers |
-| `nanobot channels login <channel>` | Authenticate a channel interactively |
-| `nanobot channels status` | Show channel status |
+| `nanobot onboard` | 在 `~/.nanobot/` 初始化配置与 workspace |
+| `nanobot onboard --wizard` | 启动交互式初始化向导 |
+| `nanobot onboard -c <config> -w <workspace>` | 初始化或刷新指定实例的配置与 workspace |
+| `nanobot agent -m "..."` | 与 agent 对话 |
+| `nanobot agent -w <workspace>` | 在指定 workspace 下对话 |
+| `nanobot agent -w <workspace> -c <config>` | 在指定 workspace/config 下对话 |
+| `nanobot agent` | 交互式聊天模式 |
+| `nanobot agent --no-markdown` | 以纯文本显示回复 |
+| `nanobot agent --logs` | 对话时显示运行日志 |
+| `nanobot gateway` | 启动网关 |
+| `nanobot status` | 查看状态 |
+| `nanobot provider login openai-codex` | provider 的 OAuth 登录 |
+| `nanobot channels login <channel>` | 交互式鉴权某渠道 |
+| `nanobot channels status` | 查看渠道状态 |
 
-Interactive mode exits: `exit`, `quit`, `/exit`, `/quit`, `:q`, or `Ctrl+D`.
+交互模式退出方式：`exit`、`quit`、`/exit`、`/quit`、`:q` 或 `Ctrl+D`。
 
 <details>
-<summary><b>Heartbeat (Periodic Tasks)</b></summary>
+<summary><b>Heartbeat（周期任务）</b></summary>
 
-The gateway wakes up every 30 minutes and checks `HEARTBEAT.md` in your workspace (`~/.nanobot/workspace/HEARTBEAT.md`). If the file has tasks, the agent executes them and delivers results to your most recently active chat channel.
+网关每 30 分钟唤醒一次，并检查你的 workspace（`~/.nanobot/workspace/`）中的 `HEARTBEAT.md`。如果文件里有任务，agent 会执行并把结果发送到你最近活跃的聊天渠道。
 
-**Setup:** edit `~/.nanobot/workspace/HEARTBEAT.md` (created automatically by `nanobot onboard`):
+**配置方式：** 编辑 `~/.nanobot/workspace/HEARTBEAT.md`（`nanobot onboard` 会自动创建）：
 
 ```markdown
 ## Periodic Tasks
@@ -1562,62 +1562,62 @@ The gateway wakes up every 30 minutes and checks `HEARTBEAT.md` in your workspac
 - [ ] Scan inbox for urgent emails
 ```
 
-The agent can also manage this file itself — ask it to "add a periodic task" and it will update `HEARTBEAT.md` for you.
+agent 也可以自行维护这个文件。你只要让它“add a periodic task”，它就会帮你更新 `HEARTBEAT.md`。
 
-> **Note:** The gateway must be running (`nanobot gateway`) and you must have chatted with the bot at least once so it knows which channel to deliver to.
+> **注意：** 网关必须在运行（`nanobot gateway`），且你至少与机器人聊过一次，它才能知道把结果发送到哪个渠道。
 
 </details>
 
 ## 🐳 Docker
 
 > [!TIP]
-> The `-v ~/.nanobot:/root/.nanobot` flag mounts your local config directory into the container, so your config and workspace persist across container restarts.
+> `-v ~/.nanobot:/root/.nanobot` 会把你本地配置目录挂载进容器，因此配置和 workspace 在容器重启后仍会保留。
 
 ### Docker Compose
 
 ```bash
-docker compose run --rm nanobot-cli onboard   # first-time setup
-vim ~/.nanobot/config.json                     # add API keys
-docker compose up -d nanobot-gateway           # start gateway
+docker compose run --rm nanobot-cli onboard   # 首次初始化
+vim ~/.nanobot/config.json                     # 添加 API keys
+docker compose up -d nanobot-gateway           # 启动网关
 ```
 
 ```bash
-docker compose run --rm nanobot-cli agent -m "Hello!"   # run CLI
-docker compose logs -f nanobot-gateway                   # view logs
-docker compose down                                      # stop
+docker compose run --rm nanobot-cli agent -m "Hello!"   # 运行 CLI
+docker compose logs -f nanobot-gateway                   # 查看日志
+docker compose down                                      # 停止
 ```
 
 ### Docker
 
 ```bash
-# Build the image
+# 构建镜像
 docker build -t nanobot .
 
-# Initialize config (first time only)
+# 初始化配置（仅首次）
 docker run -v ~/.nanobot:/root/.nanobot --rm nanobot onboard
 
-# Edit config on host to add API keys
+# 在宿主机编辑配置，添加 API keys
 vim ~/.nanobot/config.json
 
-# Run gateway (connects to enabled channels, e.g. Telegram/Discord/Mochat)
+# 运行网关（连接已启用渠道，如 Telegram/Discord/Mochat）
 docker run -v ~/.nanobot:/root/.nanobot -p 18790:18790 nanobot gateway
 
-# Or run a single command
+# 或执行单条命令
 docker run -v ~/.nanobot:/root/.nanobot --rm nanobot agent -m "Hello!"
 docker run -v ~/.nanobot:/root/.nanobot --rm nanobot status
 ```
 
-## 🐧 Linux Service
+## 🐧 Linux 服务
 
-Run the gateway as a systemd user service so it starts automatically and restarts on failure.
+把网关作为 systemd 用户服务运行，以实现开机自启和故障自动重启。
 
-**1. Find the nanobot binary path:**
+**1. 查找 nanobot 可执行路径：**
 
 ```bash
-which nanobot   # e.g. /home/user/.local/bin/nanobot
+which nanobot   # 例如 /home/user/.local/bin/nanobot
 ```
 
-**2. Create the service file** at `~/.config/systemd/user/nanobot-gateway.service` (replace `ExecStart` path if needed):
+**2. 创建服务文件** `~/.config/systemd/user/nanobot-gateway.service`（必要时替换 `ExecStart` 路径）：
 
 ```ini
 [Unit]
@@ -1637,80 +1637,80 @@ ReadWritePaths=%h
 WantedBy=default.target
 ```
 
-**3. Enable and start:**
+**3. 启用并启动：**
 
 ```bash
 systemctl --user daemon-reload
 systemctl --user enable --now nanobot-gateway
 ```
 
-**Common operations:**
+**常用操作：**
 
 ```bash
-systemctl --user status nanobot-gateway        # check status
-systemctl --user restart nanobot-gateway       # restart after config changes
-journalctl --user -u nanobot-gateway -f        # follow logs
+systemctl --user status nanobot-gateway        # 查看状态
+systemctl --user restart nanobot-gateway       # 配置变更后重启
+journalctl --user -u nanobot-gateway -f        # 实时查看日志
 ```
 
-If you edit the `.service` file itself, run `systemctl --user daemon-reload` before restarting.
+如果你修改了 `.service` 文件本身，重启前请先执行 `systemctl --user daemon-reload`。
 
-> **Note:** User services only run while you are logged in. To keep the gateway running after logout, enable lingering:
+> **注意：** 用户服务仅在登录状态下运行。若希望退出登录后仍持续运行，请启用 lingering：
 >
 > ```bash
 > loginctl enable-linger $USER
 > ```
 
-## 📁 Project Structure
+## 📁 项目结构
 
 ```
 nanobot/
-├── agent/          # 🧠 Core agent logic
-│   ├── loop.py     #    Agent loop (LLM ↔ tool execution)
-│   ├── context.py  #    Prompt builder
-│   ├── memory.py   #    Persistent memory
-│   ├── skills.py   #    Skills loader
-│   ├── subagent.py #    Background task execution
-│   └── tools/      #    Built-in tools (incl. spawn)
-├── skills/         # 🎯 Bundled skills (github, weather, tmux...)
-├── channels/       # 📱 Chat channel integrations (supports plugins)
-├── bus/            # 🚌 Message routing
-├── cron/           # ⏰ Scheduled tasks
-├── heartbeat/      # 💓 Proactive wake-up
-├── providers/      # 🤖 LLM providers (OpenRouter, etc.)
-├── session/        # 💬 Conversation sessions
-├── config/         # ⚙️ Configuration
-└── cli/            # 🖥️ Commands
+├── agent/          # 🧠 核心 agent 逻辑
+│   ├── loop.py     #    Agent 循环（LLM ↔ 工具执行）
+│   ├── context.py  #    Prompt 构建
+│   ├── memory.py   #    持久化记忆
+│   ├── skills.py   #    Skills 加载
+│   ├── subagent.py #    后台任务执行
+│   └── tools/      #    内置工具（含 spawn）
+├── skills/         # 🎯 内置技能（github、weather、tmux...）
+├── channels/       # 📱 聊天渠道集成（支持插件）
+├── bus/            # 🚌 消息路由
+├── cron/           # ⏰ 定时任务
+├── heartbeat/      # 💓 主动唤醒
+├── providers/      # 🤖 LLM providers（OpenRouter 等）
+├── session/        # 💬 对话会话
+├── config/         # ⚙️ 配置
+└── cli/            # 🖥️ 命令行入口
 ```
 
-## 🤝 Contribute & Roadmap
+## 🤝 贡献与路线图
 
-PRs welcome! The codebase is intentionally small and readable. 🤗
+欢迎 PR！代码库刻意保持小而可读。🤗
 
-### Branching Strategy
+### 分支策略
 
-| Branch | Purpose |
+| 分支 | 用途 |
 |--------|---------|
-| `main` | Stable releases — bug fixes and minor improvements |
-| `nightly` | Experimental features — new features and breaking changes |
+| `main` | 稳定发布：bug 修复与小幅改进 |
+| `nightly` | 实验特性：新功能和破坏性变更 |
 
-**Unsure which branch to target?** See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
+**不确定该往哪个分支提？** 见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
-**Roadmap** — Pick an item and [open a PR](https://github.com/HKUDS/nanobot/pulls)!
+**路线图** —— 认领一项并[提交 PR](https://github.com/HKUDS/nanobot/pulls)！
 
-- [ ] **Multi-modal** — See and hear (images, voice, video)
-- [ ] **Long-term memory** — Never forget important context
-- [ ] **Better reasoning** — Multi-step planning and reflection
-- [ ] **More integrations** — Calendar and more
-- [ ] **Self-improvement** — Learn from feedback and mistakes
+- [ ] **多模态** —— 看见与听见（图像、语音、视频）
+- [ ] **长期记忆** —— 不遗忘关键上下文
+- [ ] **更强推理** —— 多步规划与反思
+- [ ] **更多集成** —— 日历等能力
+- [ ] **自我改进** —— 从反馈与错误中学习
 
-### Contributors
+### 贡献者
 
 <a href="https://github.com/HKUDS/nanobot/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=HKUDS/nanobot&max=100&columns=12&updated=20260210" alt="Contributors" />
 </a>
 
 
-## ⭐ Star History
+## ⭐ Star 历史
 
 <div align="center">
   <a href="https://star-history.com/#HKUDS/nanobot&Date">
@@ -1723,11 +1723,11 @@ PRs welcome! The codebase is intentionally small and readable. 🤗
 </div>
 
 <p align="center">
-  <em> Thanks for visiting ✨ nanobot!</em><br><br>
+  <em> 感谢访问 ✨ nanobot！</em><br><br>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.nanobot&style=for-the-badge&color=00d4ff" alt="Views">
 </p>
 
 
 <p align="center">
-  <sub>nanobot is for educational, research, and technical exchange purposes only</sub>
+  <sub>nanobot 仅用于教育、科研与技术交流</sub>
 </p>
