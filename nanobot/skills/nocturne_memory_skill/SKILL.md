@@ -1,9 +1,9 @@
 ---
-name: nocturne-memory-mcp
+name: nocturne-memory-skill
 description: using a URI graph and a content/path separation model, it applies seven tool categories—read, create, update, delete, add_alias, manage_triggers, and search—to handle session bootstrapping (system://boot), retrieval, writes, migration, trigger-based recall, and read-back validation; the goal is to keep memory writable, auditable, reversible, and continuously evolving.
 ---
 
-# nocturne memory MCP SKILL
+# nocturne memory SKILL
 
 **本文件是工具手册，通过nocturne memory MCP来使用**
 
