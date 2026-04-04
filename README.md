@@ -1,179 +1,14 @@
-<div align="center">
-  <img src="nanobot_logo.png" alt="nanobot" width="500">
-  <h1>nanobot：超轻量个人 AI 助手</h1>
-  <p>
-    <a href="https://pypi.org/project/nanobot-ai/"><img src="https://img.shields.io/pypi/v/nanobot-ai" alt="PyPI"></a>
-    <a href="https://pepy.tech/project/nanobot-ai"><img src="https://static.pepy.tech/badge/nanobot-ai" alt="Downloads"></a>
-    <img src="https://img.shields.io/badge/python-≥3.11-blue" alt="Python">
-    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-    <a href="./COMMUNICATION.md"><img src="https://img.shields.io/badge/Feishu-Group-E9DBFC?style=flat&logo=feishu&logoColor=white" alt="Feishu"></a>
-    <a href="./COMMUNICATION.md"><img src="https://img.shields.io/badge/WeChat-Group-C5EAB4?style=flat&logo=wechat&logoColor=white" alt="WeChat"></a>
-    <a href="https://discord.gg/MnCvHqpUGB"><img src="https://img.shields.io/badge/Discord-Community-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord"></a>
-  </p>
-</div>
-
-🐈 **nanobot** 是一个受 [OpenClaw](https://github.com/openclaw/openclaw) 启发的**超轻量**个人 AI 助手。
-
-⚡️ 以比 OpenClaw **少 99% 的代码行数**提供核心 Agent 能力。
-
-📏 实时代码行统计：随时运行 `bash core_agent_lines.sh` 验证。
-
-## 📢 新闻
-
-> [!IMPORTANT]
-> **安全说明：** 由于 `litellm` 供应链投毒事件，**请尽快检查你的 Python 环境**，并参考此[安全公告](https://github.com/HKUDS/nanobot/discussions/2445)。我们已在[此提交](https://github.com/HKUDS/nanobot/commit/3dfdab7)中完全移除 `litellm` 依赖。
-
-- **2026-03-21** 🔒 用原生 `openai` + `anthropic` SDK 替换 `litellm`。见[提交](https://github.com/HKUDS/nanobot/commit/3dfdab7)。
-- **2026-03-20** 🧙 交互式初始化向导：可选择 provider、模型自动补全，快速可用。
-- **2026-03-19** 💬 Telegram 在高负载下更稳定；Feishu 代码块渲染更正确。
-- **2026-03-18** 📷 Telegram 现可通过 URL 发送媒体；Cron 计划展示更易读。
-- **2026-03-17** ✨ Feishu 格式化体验升级、Slack 完成后自动反应、自定义端点支持额外 headers、图片处理更可靠。
-- **2026-03-16** 🚀 发布 **v0.1.4.post5**：聚焦打磨与稳定性，增强各渠道支持与日常可用性。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post5)。
-- **2026-03-15** 🧩 钉钉富媒体、内置技能更智能、模型兼容性更干净。
-- **2026-03-14** 💬 渠道插件、Feishu 回复能力，以及 MCP/QQ/媒体处理稳定性提升。
-- **2026-03-13** 🌐 多 provider 网络搜索、LangSmith，以及更广泛稳定性改进。
-- **2026-03-12** 🚀 VolcEngine 支持、Telegram 回复上下文、`/restart` 与更稳健记忆。
-- **2026-03-11** 🔌 WeCom、Ollama、更清晰发现流程与更安全工具行为。
-- **2026-03-10** 🧠 基于 token 的记忆、统一重试机制、网关和 Telegram 行为更整洁。
-- **2026-03-09** 💬 Slack 线程优化与 Feishu 音频兼容性改进。
-- **2026-03-08** 🚀 发布 **v0.1.4.post4**：高可靠版本，含更安全默认值、更好的多实例支持、更稳健 MCP，以及重大渠道与 provider 改进。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post4)。
-- **2026-03-07** 🚀 Azure OpenAI provider、WhatsApp 媒体、QQ 群聊，以及更多 Telegram/Feishu 打磨。
-- **2026-03-06** 🪄 更轻量 providers、更智能媒体处理、更稳健记忆与 CLI 兼容性。
-
-<details>
-<summary>更早新闻</summary>
-
-- **2026-03-05** ⚡️ Telegram 草稿流式输出、MCP SSE 支持、更多渠道稳定性修复。
-- **2026-03-04** 🛠️ 依赖清理、更安全文件读取，以及新一轮测试与 Cron 修复。
-- **2026-03-03** 🧠 用户消息合并更干净、多模态保存更安全、Cron 保护更强。
-- **2026-03-02** 🛡️ 默认访问控制更安全、Cron 重载更稳、Matrix 媒体处理更清晰。
-- **2026-03-01** 🌐 Web 代理支持、Cron 提醒更智能、Feishu 富文本解析改进。
-- **2026-02-28** 🚀 发布 **v0.1.4.post3**：上下文更干净、会话历史更稳固、Agent 更智能。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post3)。
-- **2026-02-27** 🧠 实验性 thinking 模式支持、钉钉媒体消息、Feishu 与 QQ 渠道修复。
-- **2026-02-26** 🛡️ 会话投毒修复、WhatsApp 去重、Windows 路径保护、Mistral 兼容。
-- **2026-02-25** 🧹 新增 Matrix 渠道、会话上下文更整洁、workspace 模板自动同步。
-- **2026-02-24** 🚀 发布 **v0.1.4.post2**：可靠性导向版本，重构 heartbeat、优化 prompt cache，并强化 provider 与 channel 稳定性。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post2)。
-- **2026-02-23** 🔧 虚拟 tool-call heartbeat、prompt cache 优化、Slack mrkdwn 修复。
-- **2026-02-22** 🛡️ Slack 线程隔离、Discord 输入状态修复、Agent 可靠性提升。
-- **2026-02-21** 🎉 发布 **v0.1.4.post1**：新增 providers、跨渠道媒体支持、稳定性大幅提升。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4.post1)。
-- **2026-02-20** 🐦 Feishu 现可接收用户多模态文件；底层记忆机制更可靠。
-- **2026-02-19** ✨ Slack 可发送文件、Discord 自动拆分长消息、CLI 模式支持 subagents。
-- **2026-02-18** ⚡️ nanobot 新增 VolcEngine、MCP 自定义鉴权头、Anthropic prompt caching。
-- **2026-02-17** 🎉 发布 **v0.1.4**：支持 MCP、进度流式、更多 provider 与多项渠道改进。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.4)。
-- **2026-02-16** 🦞 nanobot 集成 [ClawHub](https://clawhub.ai) 技能，可搜索并安装公开 Agent 技能。
-- **2026-02-15** 🔑 nanobot 支持 OpenAI Codex provider，并支持 OAuth 登录。
-- **2026-02-14** 🔌 nanobot 支持 MCP！详见 [MCP 章节](#mcp-model-context-protocol)。
-- **2026-02-13** 🎉 发布 **v0.1.3.post7**：包含安全加固与多项改进。**请升级到最新版本以修复安全问题**。详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post7)。
-- **2026-02-12** 🧠 记忆系统重构：更少代码、更高可靠性。欢迎参与[讨论](https://github.com/HKUDS/nanobot/discussions/566)！
-- **2026-02-11** ✨ 强化 CLI 体验并新增 MiniMax 支持！
-- **2026-02-10** 🎉 发布 **v0.1.3.post6**。查看[更新说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post6)与[路线图](https://github.com/HKUDS/nanobot/discussions/431)。
-- **2026-02-09** 💬 新增 Slack、Email 与 QQ 支持，nanobot 进入多平台聊天时代。
-- **2026-02-08** 🔧 Provider 架构重构：新增 LLM provider 仅需两步！见[这里](#providers)。
-- **2026-02-07** 🚀 发布 **v0.1.3.post5**，支持 Qwen 并含多项关键改进！详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post5)。
-- **2026-02-06** ✨ 新增 Moonshot/Kimi provider、Discord 集成与安全加固。
-- **2026-02-05** ✨ 新增 Feishu 渠道、DeepSeek provider，并增强定时任务支持。
-- **2026-02-04** 🚀 发布 **v0.1.3.post4**，支持多 provider 与 Docker！详见[发布说明](https://github.com/HKUDS/nanobot/releases/tag/v0.1.3.post4)。
-- **2026-02-03** ⚡ 集成 vLLM 支持本地 LLM，并改进自然语言任务调度。
-- **2026-02-02** 🎉 nanobot 正式发布！欢迎体验 🐈 nanobot！
-
-</details>
-
-> 🐈 nanobot 仅用于教育、科研与技术交流。与加密货币无关，不涉及任何官方代币。
-
-## nanobot 核心特性
-
-🪶 **超轻量**：OpenClaw 的超轻实现，体积小 99%，速度显著提升。
-
-🔬 **研究友好**：代码干净可读，易理解、易修改、易扩展。
-
-⚡️ **极速**：更小体积意味着更快启动、更低资源占用、更快迭代。
-
-💎 **易用**：一键部署即可开始使用。
-
-## 🏗️ 架构
-
-<p align="center">
-  <img src="nanobot_arch.png" alt="nanobot architecture" width="800">
-</p>
-
-## 目录
-
-- [新闻](#-新闻)
-- [核心特性](#nanobot-核心特性)
-- [架构](#️-架构)
-- [功能](#-功能)
-- [安装](#-安装)
-- [快速开始](#-快速开始)
-- [聊天平台](#-聊天平台)
-- [Agent 社交网络](#-agent-社交网络)
-- [配置](#️-配置)
-- [多实例](#-多实例)
-- [CLI 参考](#-cli-参考)
-- [Docker](#-docker)
-- [Linux 服务](#-linux-服务)
-- [项目结构](#-项目结构)
-- [贡献与路线图](#-贡献与路线图)
-- [Star 历史](#-star-历史)
-
-## ✨ 功能
-
-<table align="center">
-  <tr align="center">
-    <th><p align="center">📈 7x24 实时市场分析</p></th>
-    <th><p align="center">🚀 全栈软件工程师</p></th>
-    <th><p align="center">📅 智能日常事务管理</p></th>
-    <th><p align="center">📚 个人知识助手</p></th>
-  </tr>
-  <tr>
-    <td align="center"><p align="center"><img src="case/search.gif" width="180" height="400"></p></td>
-    <td align="center"><p align="center"><img src="case/code.gif" width="180" height="400"></p></td>
-    <td align="center"><p align="center"><img src="case/scedule.gif" width="180" height="400"></p></td>
-    <td align="center"><p align="center"><img src="case/memory.gif" width="180" height="400"></p></td>
-  </tr>
-  <tr>
-    <td align="center">发现 • 洞察 • 趋势</td>
-    <td align="center">开发 • 部署 • 扩展</td>
-    <td align="center">计划 • 自动化 • 组织</td>
-    <td align="center">学习 • 记忆 • 推理</td>
-  </tr>
-</table>
-
-## 📦 安装
-
 **从源码安装**（最新功能，推荐开发者）
 
 ```bash
 git clone https://github.com/HKUDS/nanobot.git
 cd nanobot
-pip install -e .
-```
-
-**使用 [uv](https://github.com/astral-sh/uv) 安装**（稳定、快速）
-
-```bash
-uv tool install nanobot-ai
-```
-
-**从 PyPI 安装**（稳定）
-
-```bash
-pip install nanobot-ai
-```
-
-### 升级到最新版本
-
-**PyPI / pip**
-
-```bash
-pip install -U nanobot-ai
-nanobot --version
-```
-
-**uv**
-
-```bash
-uv tool upgrade nanobot-ai
-nanobot --version
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+uv pip install pytest
+uv pip install pytest-asyncio
+uv run nanobot
 ```
 
 **使用 WhatsApp？** 升级后请重建本地 bridge：
@@ -385,7 +220,7 @@ nanobot gateway
 
 **5. 邀请机器人**
 - OAuth2 → URL Generator
-- Scopes：`bot`
+- Scopes：`bot`、`applications.commands`
 - Bot Permissions：`Send Messages`、`Read Message History`
 - 打开生成的邀请链接，把机器人添加到你的服务器
 

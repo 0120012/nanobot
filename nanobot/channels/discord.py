@@ -20,6 +20,20 @@ from nanobot.utils.helpers import split_message
 DISCORD_API_BASE = "https://discord.com/api/v10"
 MAX_ATTACHMENT_BYTES = 20 * 1024 * 1024  # 20MB
 MAX_MESSAGE_LEN = 2000  # Discord message character limit
+DISCORD_SLASH_COMMANDS: list[dict[str, str]] = [
+    {"name": "help", "description": "Show available commands"},
+    {"name": "new", "description": "Start a new conversation"},
+    {"name": "restart", "description": "Restart the bot"},
+    {"name": "status", "description": "Show bot status"},
+    {"name": "stop", "description": "Stop the current task"},
+]
+DISCORD_INTERACTION_COMMAND_MAP: dict[str, str] = {
+    "help": "/help",
+    "new": "/new",
+    "restart": "/restart",
+    "status": "/status",
+    "stop": "/stop",
+}
 
 
 class DiscordConfig(Base):
@@ -27,6 +41,7 @@ class DiscordConfig(Base):
 
     enabled: bool = False
     token: str = ""
+    application_id: str = ""
     allow_from: list[str] = Field(default_factory=list)
     gateway_url: str = "wss://gateway.discord.gg/?v=10&encoding=json"
     intents: int = 37377
@@ -54,6 +69,10 @@ class DiscordChannel(BaseChannel):
         self._typing_tasks: dict[str, asyncio.Task] = {}
         self._http: httpx.AsyncClient | None = None
         self._bot_user_id: str | None = None
+        # Why: 斜杠命令注册依赖 application id，优先使用配置，运行时可自动探测补全。
+        self._application_id: str | None = self.config.application_id or None
+        # Why: 连接重试场景下避免重复 PUT 命令定义，降低不必要的 API 调用。
+        self._commands_registered = False
 
     async def start(self) -> None:
         """Start the Discord gateway connection."""
@@ -63,6 +82,7 @@ class DiscordChannel(BaseChannel):
 
         self._running = True
         self._http = httpx.AsyncClient(timeout=30.0)
+        await self._ensure_application_commands()
 
         while self._running:
             try:
@@ -99,6 +119,36 @@ class DiscordChannel(BaseChannel):
         if not self._http:
             logger.warning("Discord HTTP client not initialized")
             return
+
+        interaction = (msg.metadata or {}).get("discord_interaction")
+        if isinstance(interaction, dict):
+            token = str(interaction.get("token") or "")
+            app_id = str(interaction.get("application_id") or self._application_id or "")
+            content = msg.content or ""
+            if token and app_id and content:
+                # Why: slash 命令应优先回填 interaction 原消息，避免额外发一条普通频道消息。
+                chunks = split_message(content, MAX_MESSAGE_LEN)
+                try:
+                    resp = await self._http.patch(
+                        f"{DISCORD_API_BASE}/webhooks/{app_id}/{token}/messages/@original",
+                        json={"content": chunks[0]},
+                    )
+                    resp.raise_for_status()
+                except Exception as e:
+                    logger.debug("Discord interaction original response failed: {}", e)
+                else:
+                    for chunk in chunks[1:]:
+                        try:
+                            resp = await self._http.post(
+                                f"{DISCORD_API_BASE}/webhooks/{app_id}/{token}",
+                                json={"content": chunk},
+                            )
+                            resp.raise_for_status()
+                        except Exception as e:
+                            logger.debug("Discord interaction followup failed: {}", e)
+                            break
+                    await self._stop_typing(msg.chat_id)
+                    return
 
         url = f"{DISCORD_API_BASE}/channels/{msg.chat_id}/messages"
         headers = {"Authorization": f"Bot {self.config.token}"}
@@ -138,12 +188,17 @@ class DiscordChannel(BaseChannel):
             await self._stop_typing(msg.chat_id)
 
     async def _send_payload(
-        self, url: str, headers: dict[str, str], payload: dict[str, Any]
+        self,
+        url: str,
+        headers: dict[str, str],
+        payload: Any,
+        *,
+        method: str = "POST",
     ) -> bool:
         """Send a single Discord API payload with retry on rate-limit. Returns True on success."""
         for attempt in range(3):
             try:
-                response = await self._http.post(url, headers=headers, json=payload)
+                response = await self._http.request(method=method, url=url, headers=headers, json=payload)
                 if response.status_code == 429:
                     data = response.json()
                     retry_after = float(data.get("retry_after", 1.0))
@@ -240,6 +295,8 @@ class DiscordChannel(BaseChannel):
                 logger.info("Discord bot connected as user {}", self._bot_user_id)
             elif op == 0 and event_type == "MESSAGE_CREATE":
                 await self._handle_message_create(payload)
+            elif op == 0 and event_type == "INTERACTION_CREATE":
+                await self._handle_interaction_create(payload)
             elif op == 7:
                 # RECONNECT: exit loop to reconnect
                 logger.info("Discord gateway requested reconnect")
@@ -267,6 +324,36 @@ class DiscordChannel(BaseChannel):
             },
         }
         await self._ws.send(json.dumps(identify))
+
+    async def _ensure_application_commands(self) -> None:
+        # Why: 先注册 Discord 应用命令，才能在客户端输入 `/` 时看到内置命令菜单。
+        if self._commands_registered or not self._http:
+            return
+        app_id = self._application_id
+        if not app_id:
+            try:
+                resp = await self._http.get(
+                    f"{DISCORD_API_BASE}/oauth2/applications/@me",
+                    headers={"Authorization": f"Bot {self.config.token}"},
+                )
+                resp.raise_for_status()
+                app_id = str((resp.json() or {}).get("id") or "").strip()
+            except Exception as e:
+                logger.warning("Discord slash commands skipped: resolve application id failed: {}", e)
+                return
+            if not app_id:
+                logger.warning("Discord slash commands skipped: empty application id")
+                return
+            self._application_id = app_id
+        ok = await self._send_payload(
+            f"{DISCORD_API_BASE}/applications/{app_id}/commands",
+            {"Authorization": f"Bot {self.config.token}"},
+            DISCORD_SLASH_COMMANDS,
+            method="PUT",
+        )
+        if ok:
+            self._commands_registered = True
+            logger.info("Discord slash commands registered: /help, /new, /restart, /status, /stop")
 
     async def _start_heartbeat(self, interval_s: float) -> None:
         """Start or restart the heartbeat loop."""
@@ -345,6 +432,59 @@ class DiscordChannel(BaseChannel):
                 "message_id": str(payload.get("id", "")),
                 "guild_id": guild_id,
                 "reply_to": reply_to,
+            },
+        )
+
+    async def _handle_interaction_create(self, payload: dict[str, Any]) -> None:
+        """Handle Discord slash-command interactions."""
+        # Why: 将交互事件转换为统一文本命令，复用 AgentLoop 已有 /new /stop 逻辑。
+        if int(payload.get("type") or 0) != 2:
+            return
+        command_name = str((payload.get("data") or {}).get("name") or "").lower()
+        command_text = DISCORD_INTERACTION_COMMAND_MAP.get(command_name)
+        if not command_text:
+            return
+        user_data = (payload.get("member") or {}).get("user") or payload.get("user") or {}
+        sender_id = str(user_data.get("id") or "")
+        channel_id = str(payload.get("channel_id") or "")
+        if not sender_id or not channel_id:
+            return
+        interaction_id = str(payload.get("id") or "")
+        interaction_token = str(payload.get("token") or "")
+        if interaction_id and interaction_token and self._http and not self.is_allowed(sender_id):
+            # Why: 未授权请求必须立即闭环，不能先 defer 再静默丢弃。
+            try:
+                resp = await self._http.post(
+                    f"{DISCORD_API_BASE}/interactions/{interaction_id}/{interaction_token}/callback",
+                    json={"type": 4, "data": {"content": "Access denied.", "flags": 64}},
+                )
+                resp.raise_for_status()
+            except Exception as e:
+                logger.debug("Discord interaction deny response failed: {}", e)
+            return
+        if interaction_id and interaction_token and self._http:
+            # Why: Discord 交互必须先确认，否则客户端会显示 “This interaction failed”。
+            try:
+                resp = await self._http.post(
+                    f"{DISCORD_API_BASE}/interactions/{interaction_id}/{interaction_token}/callback",
+                    json={"type": 5},
+                )
+                resp.raise_for_status()
+            except Exception as e:
+                logger.warning("Discord interaction ack failed: {}", e)
+                return
+        await self._handle_message(
+            sender_id=sender_id,
+            chat_id=channel_id,
+            content=command_text,
+            metadata={
+                "message_id": str(payload.get("id") or ""),
+                "guild_id": payload.get("guild_id"),
+                "discord_interaction": {
+                    "id": str(payload.get("id") or ""),
+                    "token": str(payload.get("token") or ""),
+                    "application_id": str(payload.get("application_id") or self._application_id or ""),
+                },
             },
         )
 

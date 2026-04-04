@@ -188,3 +188,57 @@ class TestRestartCommand:
 
         assert response is not None
         assert response.metadata == {"render_as": "text"}
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        ("command", "expected_content", "expected_metadata"),
+        [
+            (
+                "/help",
+                "/help",
+                {"discord_interaction": {"token": "itk", "application_id": "app"}, "render_as": "text"},
+            ),
+            (
+                "/status",
+                "Model: test-model",
+                {"discord_interaction": {"token": "itk", "application_id": "app"}, "render_as": "text"},
+            ),
+            (
+                "/restart",
+                "Restarting",
+                {"discord_interaction": {"token": "itk", "application_id": "app"}},
+            ),
+        ],
+    )
+    async def test_discord_slash_commands_preserve_interaction_metadata(
+        self,
+        command: str,
+        expected_content: str,
+        expected_metadata: dict,
+    ):
+        loop, _bus = _make_loop()
+        session = MagicMock()
+        session.get_history.return_value = []
+        loop.sessions.get_or_create.return_value = session
+        loop.subagents.get_running_count.return_value = 0
+        msg = InboundMessage(
+            channel="discord",
+            sender_id="u1",
+            chat_id="c1",
+            content=command,
+            metadata={"discord_interaction": {"token": "itk", "application_id": "app"}},
+        )
+
+        with patch("nanobot.command.builtin.os.execv"):
+            if command == "/restart":
+                from nanobot.command.builtin import cmd_restart
+                from nanobot.command.router import CommandContext
+
+                ctx = CommandContext(msg=msg, session=None, key=msg.session_key, raw=command, loop=loop)
+                response = await cmd_restart(ctx)
+            else:
+                response = await loop._process_message(msg)
+
+        assert response is not None
+        assert expected_content in response.content
+        assert response.metadata == expected_metadata
