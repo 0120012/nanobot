@@ -2,5 +2,5 @@
 nanobot - A lightweight AI agent framework
 """
 
-__version__ = "0.1.4.post6"
-__logo__ = "🐈"
+__version__ = "v1.0.0"
+__logo__ = "🍁"

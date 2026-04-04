@@ -291,8 +291,9 @@ def sync_workspace_templates(workspace: Path, silent: bool = False) -> list[str]
     for item in tpl.iterdir():
         if item.name.endswith(".md") and not item.name.startswith("."):
             _write(item, workspace / item.name)
-    _write(tpl / "memory" / "MEMORY.md", workspace / "memory" / "MEMORY.md")
-    _write(None, workspace / "memory" / "HISTORY.md")
+    # Why: 用户要求关闭 gateway/onboard 启动时对 memory 两个占位文件的自动落盘。
+    # _write(tpl / "memory" / "MEMORY.md", workspace / "memory" / "MEMORY.md")
+    # _write(None, workspace / "memory" / "HISTORY.md")
     (workspace / "skills").mkdir(exist_ok=True)
 
     if added and not silent:
