@@ -160,3 +160,23 @@ async def test_searxng_invalid_url():
     tool = _tool(provider="searxng", base_url="not-a-url")
     result = await tool.execute(query="test")
     assert "Error" in result
+
+
+@pytest.mark.asyncio
+async def test_duckduckgo_timeout_returns_error(monkeypatch):
+    class SlowDDGS:
+        def __init__(self, **kw):
+            pass
+
+        def text(self, query, max_results=5):
+            import time
+            time.sleep(1.0)
+            return [{"title": "late", "href": "https://late.example", "body": "late"}]
+
+    monkeypatch.setattr("ddgs.DDGS", SlowDDGS)
+    import nanobot.agent.tools.web as web_mod
+    monkeypatch.setattr(web_mod, "DDG_FALLBACK_TOTAL_TIMEOUT_SECONDS", 0.05, raising=True)
+
+    tool = _tool(provider="duckduckgo")
+    result = await tool.execute(query="timeout case")
+    assert "timed out" in result
