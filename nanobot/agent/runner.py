@@ -4,7 +4,10 @@ from __future__ import annotations
 
 import asyncio
 from dataclasses import dataclass, field
+import json
 from typing import Any
+
+from loguru import logger
 
 from nanobot.agent.hook import AgentHook, AgentHookContext
 from nanobot.agent.tools.registry import ToolRegistry
@@ -73,6 +76,11 @@ class AgentRunner:
                 "tools": spec.tools.get_definitions(),
                 "model": spec.model,
             }
+            # logger.debug(
+            #     "AgentRunner.messages[iteration={}]:\n{}",
+            #     iteration,
+            #     json.dumps(messages, ensure_ascii=False, indent=2),
+            # )
             if spec.temperature is not None:
                 kwargs["temperature"] = spec.temperature
             if spec.max_tokens is not None:
