@@ -491,17 +491,20 @@ class DiscordChannel(BaseChannel):
     def _should_respond_in_group(self, payload: dict[str, Any], content: str) -> bool:
         """Check if bot should respond in a group channel based on policy."""
         if self.config.group_policy == "open":
+            # Why: open 模式表示该频道允许当前 bot 对所有群消息继续下游处理，
+            # 不在 channel 层做 mention 过滤。
             return True
 
         if self.config.group_policy == "mention":
-            # Check if bot was mentioned in the message
+            # Why: mention 模式必须在入总线前拦截未指向当前 bot 的消息，
+            # 否则多个 agent 共处同一频道时会把无关消息写入各自上下文。
             if self._bot_user_id:
-                # Check mentions array
+                # Why: 优先信任 Discord 结构化 mentions，避免只靠正文字符串匹配。
                 mentions = payload.get("mentions") or []
                 for mention in mentions:
                     if str(mention.get("id")) == self._bot_user_id:
                         return True
-                # Also check content for mention format <@USER_ID>
+                # Why: 保留对原始 mention 文本的兜底兼容，降低网关字段异常时的漏接概率。
                 if f"<@{self._bot_user_id}>" in content or f"<@!{self._bot_user_id}>" in content:
                     return True
             logger.debug("Discord message in {} ignored (bot not mentioned)", payload.get("channel_id"))
